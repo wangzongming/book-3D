@@ -6,26 +6,28 @@
 
 
 ##---------api:
-    配置项：images:[{//图片配置 每个图片就是一页
-                src:'http://books.mingbianji.com/showbox/iPhone6&AppleWatch/files/mobile/1.jpg'
-            },{src：...},{src：...}]
-            pageEnd:function(flag){/*翻书到第一页或者最后一页会触发  flag==='first' 是首页*/}
-            touchPage:function(curPageIndex){/*翻页时回调函数  参数是当前页数*/}
+###    配置项：
+	images:[{//图片配置 每个图片就是一页
+			src:'http://books.mingbianji.com/showbox/iPhone6&AppleWatch/files/mobile/1.jpg'
+		},{src：...},{src：...}]
+	pageEnd:function(flag){/*翻书到第一页或者最后一页会触发  flag==='first' 是首页*/}
+	touchPage:function(curPageIndex){/*翻页时回调函数  参数是当前页数*/}
 
-    方法：
-        callback（回调）全部为可选参数
-        
-        .nextPage(callback);//下一页
-        .prevPage(callback);//上一页
-        .lastPage(callback);//去尾页
-        .firstPage(callback);//去首页
-        .gotoPage(pageNum, callback);//去指定页数 参数为（目标页数  翻页成后的回调）
+###    方法：
+	callback（回调）全部为可选参数
+	
+	.nextPage(callback);//下一页
+	.prevPage(callback);//上一页
+	.lastPage(callback);//去尾页
+	.firstPage(callback);//去首页
+	.gotoPage(pageNum, callback);//去指定页数 参数为（目标页数  翻页成后的回调）
 
-    属性：
+###    属性：
         .pageIndex;  //当前页索引
 
 
 ##---------eg:
+<code>
 	用户自定义的配置
 	window.Wxx = window.wxx = w = {
 		images:[{//图片配置 每个图片就是一页
@@ -60,6 +62,7 @@
 		})
 	}, 2000)
 
+</code>
 ##---------截图
     ![pc](./v0.1-1.jpg)
     ![mobile](./v0.1-2.jpg)
