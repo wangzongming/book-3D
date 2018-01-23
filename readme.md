@@ -32,30 +32,30 @@
 
 *	用户自定义的配置
 
-	window.Wxx = window.wxx = w = { 
-		images:[{//图片配置 每个图片就是一页
-			src:'http://books.mingbianji.com/showbox/iPhone6&AppleWatch/files/mobile/1.jpg'
-		},{
-			src:'http://books.mingbianji.com/showbox/iPhone6&AppleWatch/files/mobile/2.jpg'
-		}], 
-		soundBaseURL:'./style/raw/mp3.mp3',//翻书声音路径
-		pageEnd:function(flag){//翻书到第一页或者最后一页 
-			if(flag === 'first'){
-				console.log('翻到了第一页');
-			}else{
-				console.log('翻到了最后');
-			}
-		},
-		touchPage:function(curPageIndex){//翻页时回调函数 
-			console.log(`当前页数【${curPageIndex}】`)
-		}
-	}
+	window.Wxx = window.wxx = w = { <br/>
+		images:[{//图片配置 每个图片就是一页<br/>
+			src:'http://books.mingbianji.com/showbox/iPhone6&AppleWatch/files/mobile/1.jpg'<br/>
+		},{<br/>
+			src:'http://books.mingbianji.com/showbox/iPhone6&AppleWatch/files/mobile/2.jpg'<br/>
+		}], <br/>
+		soundBaseURL:'./style/raw/mp3.mp3',//翻书声音路径<br/>
+		pageEnd:function(flag){//翻书到第一页或者最后一页 <br/>
+			if(flag === 'first'){<br/>
+				console.log('翻到了第一页');<br/>
+			}else{<br/>
+				console.log('翻到了最后');<br/>
+			}<br/>
+		},<br/>
+		touchPage:function(curPageIndex){//翻页时回调函数 <br/>
+			console.log(`当前页数【${curPageIndex}】`)<br/>
+		}<br/>
+	}<br/>
 
-	setTimeout(function(){
-		window.Wxx.gotoPage(1, function(){
-			console.log('跳转完成'); 
-		})
-	}, 2000) 
+	setTimeout(function(){<br/>
+		window.Wxx.gotoPage(1, function(){<br/>
+			console.log('跳转完成'); <br/>
+		})<br/>
+	}, 2000) <br/>
  
 ## ---------截图
     ![pc](./v0.1-1.jpg)
