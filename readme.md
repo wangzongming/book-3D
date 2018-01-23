@@ -60,10 +60,20 @@ setTimeout(function(){
 	})
 }, 2000)
 
----------images
-    ![测试](http://books.mingbianji.com/showbox/iPhone6&AppleWatch/files/mobile/6.jpg)
+---------截图
+    ![测试](./v0.1-1.jpg)
+    ![测试](./v0.1-1.jpg)
 
-
+---------目录结构
+	-----javascript
+		----config.js(用于修改配置的文件)
+		----jquery-1.9.1.min
+		----main.js(核心文件)
+		----loadindeJs.js(加载文件)
+	-----style
+		----style.css(样式文件)
+			...
+	index.html
 
 
 ---------log:
