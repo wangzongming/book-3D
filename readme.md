@@ -1,8 +1,9 @@
 #---------------------------------------v0.1
 
 ##---------说明
-    pc和移动动能用
-    此项目就只提供了翻书效果，其余功能可根据提供的api自己实
+
+	pc和移动动能用
+	此项目就只提供了翻书效果，其余功能可根据提供的api自己实
 
 
 ##---------api:
@@ -30,6 +31,7 @@
 ## ---------eg: 
 *	用户自定义的配置
 
+	<code>
 	window.Wxx = window.wxx = w = {
 		images:[{//图片配置 每个图片就是一页
 			src:'http://books.mingbianji.com/showbox/iPhone6&AppleWatch/files/mobile/1.jpg'
@@ -54,6 +56,7 @@
 			console.log('跳转完成'); 
 		})
 	}, 2000)
+	</code>
  
 ## ---------截图
     ![pc](./v0.1-1.jpg)
@@ -64,15 +67,15 @@
 	<ul>
 		<li>
 			-----javascript
-				> ----config.js(用于修改配置的文件)
-				> ----jquery-1.9.1.min
-				> ----main.js(核心文件)
-				> ----loadindeJs.js(加载文件)
+				<p> ----config.js(用于修改配置的文件)</p>
+				<p> ----jquery-1.9.1.min</p>
+				<p> ----main.js(核心文件)</p>
+				<p> ----loadindeJs.js(加载文件)</p>
 		</li>
 		<li>
 			-----style
-				> ----style.css(样式文件)
-				> ...
+				<p> ----style.css(样式文件)</p>
+				<p> ...</p>
 		</li>
 		<li>
 			index.html
@@ -82,5 +85,5 @@
 
 ## --------------------------log:
 +	v0.1:
-        1.提供正常翻书功能  
+        <p>1.提供正常翻书功能  
           
