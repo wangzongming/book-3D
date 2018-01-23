@@ -13,8 +13,7 @@ p{margin:0;padding:0;}
 .mask {
      position : absolute;
      right:50%;
-     left:auto;
-     /*background:blue;*/
+     left:auto; 
      /*opacity:0.5;*/
      transform-origin : 100% 50%;
      -webkit-transform-origin : 100% 50%;

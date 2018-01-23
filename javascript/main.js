@@ -80,6 +80,36 @@
 	}
 })(jQuery);
 
+var bookConfig = { //全局配置
+	totalPageCount: window.Wxx.images.length || 0,
+	largePageWidth: 1080,
+	largePageHeight: 1440,
+	bgMRotation: 45,
+	topMargin: 10,
+	bottomMargin: 10,
+	leftMargin: 10,
+	rightMargin: 10,
+	LinkAlpha: 0.5,
+	maxWidthToSmallMode: "400",
+	maxHeightToSmallMode: "300",
+	showDoublePage: "Yes",
+	securityType: "1",
+	FlipStyle: 'Flip',
+	retainBookCenter: "Yes",
+	flippingTime: "0.3",
+	LeftShadowWidth: '90',
+	LeftShadowAlpha: '0.6',
+	RightShadowAlpha: '0.6',
+	RightShadowWidth: '55',
+	HardPageEnable: "No",
+	hardCoverBorderWidth: '8',
+	outerCoverBorder: 'Yes',
+	cornerRound: '8',
+	BindingType: '0.3',
+	RightToLeft: 'No'
+};
+
+
 var global = function () {
 	return this || (0, eval)("(this)")
 }();
@@ -1378,64 +1408,6 @@ var videoThemes = [{
 	volumeWidth: 105,
 	fullscreenWidth: 60
 }],
-	audioThemes = [{
-		name: "default",
-		volumeDirection: "horizontal",
-		audioSeek: 20,
-		wolumnWidth: 170
-	}, {
-		name: "advanced",
-		volumeDirection: "horizontal"
-	}, {
-		name: "wave",
-		volumeDirection: "horizontal",
-		audioSeek: 125
-	}, {
-		name: "glass",
-		volumeDirection: "horizontal"
-	}, {
-		name: "simple",
-		volumeDirection: "horizontal"
-	}, {
-		name: "enjoy",
-		volumeDirection: "horizontal"
-	}, {
-		name: "decent",
-		volumeDirection: "vertical"
-	}, {
-		name: "tree",
-		volumeDirection: "horizontal"
-	}, {
-		name: "christmas",
-		volumeDirection: "vertical"
-	}, {
-		name: "turnonoff",
-		volumeDirection: "horizontal"
-	}, {
-		name: "fade",
-		volumeDirection: "horizontal"
-	}, {
-		name: "background",
-		volumeDirection: "horizontal"
-	}, {
-		name: "skin1",
-		volumeDirection: "horizontal",
-		audioSeek: 130
-	}, {
-		name: "skin2",
-		volumeDirection: "horizontal",
-		audioSeek: 80
-	}],
-	audioThemeNames = {
-		GlassAudioPlayer: "",
-		SimpleAudioPlayer: "",
-		StandardAudioPlayer: "",
-		StandardAudioPlayer02: "",
-		StandardAudioPlayer03: "",
-		StandardAudioPlayer04: "",
-		StandardAudioPlayer05: "",
-		StandardAudioPlayer06: ""
-	},
 	timeFormat = function (b) {
 		var c = 10 > Math.floor(b / 60) ? "0" + Math.floor(b / 60) : Math.floor(b / 60);
 		return c + ":" + (10 > Math.floor(b - 60 * c) ? "0" + Math.floor(b - 60 * c) : Math.floor(b - 60 * c))
@@ -1713,6 +1685,7 @@ jQuery.extend(jQuery.easing, {
 	b.fn.loader = function (f, g, h) {
 		f && b.extend(c, f);
 		"function" == typeof g && (d = g);
+
 		for (f = 0; f < c.length; f++) k(c[f])
 	}
 })(jQuery);
@@ -2332,34 +2305,6 @@ jQuery.extend(jQuery.easing, {
 	b.fn.changeCssSprite = function (b, c, d, f, g) {
 		this.children().cssSprite(b, c, d, f, g)
 	};
-	// b.fn.cssSprite =
-	// 	function (b, c, d, f, g) {
-	// 		if (g.iconInfo) {
-	// 			for (var h = 0, k = 0; k < g.iconInfo.length; k++)
-	// 				if (g.iconInfo[k].id == c) {
-	// 					h = k;
-	// 					break
-	// 				}
-	// 			c = g.iconInfo[h].position;
-	// 			var k = "",
-	// 				k = g.width,
-	// 				l = g.height,
-	// 				m = 0,
-	// 				n = 0,
-	// 				m = d * k / g.iconInfo[h].width,
-	// 				n = f * l / g.iconInfo[h].height;
-	// 			c = -c.x * m / k + "px " + -c.y * n / l + "px";
-	// 			k = m + "px " + n + "px";
-	// 			this.css({
-	// 				"background-image": "url(" + b + ")",
-	// 				"background-repeat": "no-repeat",
-	// 				"background-position": c,
-	// 				"-webkit-background-size": k,
-	// 				"-o-background-size": k,
-	// 				"background-size": k
-	// 			})
-	// 		}
-	// 	};
 	bdor[6] = "l"
 })(jQuery);
 var hddr = [];
@@ -3600,103 +3545,6 @@ var flipping = !1;
 	}
 })(jQuery);
 
-// String.prototype.compareTo = function (b) {
-// 	var c = this.length,
-// 		d = b.length,
-// 		f = Math.min(c, d),
-// 		g = this.split("");
-// 	b = b.split("");
-// 	var h = 0,
-// 		k = 0;
-// 	if (h == k)
-// 		for (k = h, f += h; k < f;) {
-// 			var l = g[k],
-// 				m = b[k];
-// 			if (l != m) return l - m;
-// 			k++
-// 		} else
-// 		for (; 0 != f--;)
-// 			if (l = g[h++], m = b[k++], l != m) return l - m;
-// 	return c - d
-// };
-// $.fn.setGradient = function (b, c) {
-// 	var d = colorAdd(b, 15),
-// 		f = colorDiv(b, 15);
-// 	void 0 == c && (c = !1);
-// 	var g = "",
-// 		h = "0";
-// 	c && (g = "left,", h = "1");
-// 	this.css({
-// 		background: "linear-gradient(" + g + d + ", " + f + ")"
-// 	});
-// 	switch (browserType) {
-// 		case 1:
-// 			this.css({
-// 				background: "-webkit-linear-gradient(" + g + d + ", " + f + ")"
-// 			});
-// 			break;
-// 		case 2:
-// 			this.css({
-// 				background: "-moz-linear-gradient(" + g + d + ", " + f + ")"
-// 			});
-// 			break;
-// 		case 3:
-// 			this.css({
-// 				background: "-ms-linear-gradient(" + g + d + ", " + f + ")"
-// 			});
-// 			this.css("filter", "progid:DXImageTransform.Microsoft.Gradient(GradientType=" + h + ", EndColorStr=" +
-// 				f + ", StartColorStr=" + d + ")");
-// 			break;
-// 		case 4:
-// 			this.css({
-// 				background: "-o-linear-gradient(" + g + d + ", " + f + ")"
-// 			})
-// 	}
-// };
-// $.fn.setGradientByDir = function (b, c, d) {
-// 	void 0 == d && (d = !1);
-// 	var f = "",
-// 		g = "0";
-// 	d && (f = "left,", g = "1");
-// 	this.css({
-// 		background: "linear-gradient(" + f + b + ", " + c + ")"
-// 	});
-// 	switch (browserType) {
-// 		case 1:
-// 			this.css({
-// 				background: "-webkit-linear-gradient(" + f + b + ", " + c + ")"
-// 			});
-// 			break;
-// 		case 2:
-// 			this.css({
-// 				background: "-moz-linear-gradient(" + f + b + ", " + c + ")"
-// 			});
-// 			break;
-// 		case 3:
-// 			this.css({
-// 				background: "-ms-linear-gradient(" + f + b + ", " + c + ")"
-// 			});
-// 			this.css("filter", "progid:DXImageTransform.Microsoft.Gradient(GradientType=" + g + ", EndColorStr=" + c + ", StartColorStr=" +
-// 				b + ")");
-// 			break;
-// 		case 4:
-// 			this.css({
-// 				background: "-o-linear-gradient(" + f + b + ", " + c + ")"
-// 			})
-// 	}
-// };
-// $.fn.addBorderShadow = function (b, c, d) {
-// 	var f = c + "px",
-// 		g = d + "px";
-// 	c = 2 * (Math.abs(c) + Math.abs(d)) + "px";
-// 	this.css({
-// 		"-moz-box-shadow": f + " " + g + " " + c + " " + b,
-// 		"box-shadow": f + " " + g + " " + c + " " + b,
-// 		"-webkit-box-shadow": f + " " + g + " " + c + " " + b,
-// 		"-o-box-shadow": f + " " + g + " " + c + " " + b,
-// 		"-ms-box-shadow": f + " " + g + " " + c + " " + b
-// 	})
-// };
 var getHost = function (b) {
 	var c;
 	b || (b = window.location.href);
@@ -4015,7 +3863,7 @@ $.fn.allowNumberOnly = function () {
 };
 var fullScreenEvent = function () {
 	isPhone() ? alert(getLanguage("", "")) : !0 == $.browser.msie ? alert(getLanguage("")) : (fullscreenFun(), $(document).bind(fullScreenApi.fullScreenEventName, function () {
-		toolBar.changeFullscreenIcon(fullScreenApi.isFullScreen())
+		console.log('fullScreenEvent')
 	}))
 };
 
@@ -4702,6 +4550,7 @@ var scaleTran = function (b) {
 	},
 	gotoPageFun = function (b) {
 		window.Wxx.touchPage(b);
+		window.Wxx.pageIndex = b;
 		sendvisitinfo(1, b);
 		b = parseInt(b);
 		if (passwardType() && bookConfig.excludeFrontPages && b > parseInt(bookConfig.excludeFrontPages) && !verifyPassward()) passwardPannel.show();
@@ -4754,49 +4603,6 @@ var scaleTran = function (b) {
 				break;
 			case 2:
 				global.fliphtml5_pages[f].t = d
-		}
-	},
-	getPageDir = function (b, c, d) {
-		if (0 >= b || void 0 != d && b > d) return "";
-		if (bookConfig.getPageURL) {
-			var f =
-				0;
-			"normal" == c && (f = 1);
-			"thumb" == c && (f = 2);
-			return bookConfig.getPageURL(b, f)
-		}
-		d = getFileFormat(b);
-		var g = global.fliphtml5_pages;
-		if (void 0 != g && 0 < g.length) {
-			g = g[b - 1];
-			if (void 0 != g && null != g) switch (c) {
-				case "normal":
-					f = void 0 == g.n ? g.l : g.n;
-					break;
-				case "large":
-					f = g.l;
-					break;
-				case "thumb":
-					f = g.t
-			}
-			if (void 0 == f) switch (c) {
-				case "normal":
-					return f = getString("normalPath", "files/page/") + b + d;
-				case "large":
-					return f = getString("largePath", "files/large/") + b + d;
-				case "thumb":
-					return f = getString("thumbPath", "files/thumbnail/") + b + d
-			}
-			return void 0 ==
-				f ? "" : f
-		}
-		switch (c) {
-			case "normal":
-				return f = getString("normalPath", "files/page/") + b + d, void 0 == f ? "" : f;
-			case "large":
-				return f = getString("largePath", "files/large/") + b + d, void 0 == f ? "" : f;
-			case "thumb":
-				return f = getString("thumbPath", "files/thumbnail/") + b + d, void 0 == f ? "" : f
 		}
 	},
 	getFileFormat = function (b) {
@@ -4940,43 +4746,34 @@ var changeShowBook = function (b) {
 			bookType = BookType.normal_book;
 			singlePageBook.hide();
 			flipBook.show();
-			// bookConfig.ThumbnailsButtonVisible && thumbnail.mergeAll();
 			break;
 		case 1:
 			bookType = BookType.single_book;
 			singlePageBook.show();
 			flipBook.hide();
-			// bookConfig.ThumbnailsButtonVisible && thumbnail.fissionAll();
 			break;
 		case 3:
 			bookType = BookType.slide_book;
 			slideBook.show();
-			// bookConfig.ThumbnailsButtonVisible && thumbnail.mergeAll();
 			break;
 		case 4:
 			bookType = BookType.phone_slide_book;
 			singlePhoneSlideBook.hide();
 			phoneSlideBook.show();
-			// bookConfig.ThumbnailsButtonVisible && thumbnail.mergeAll();
 			break;
 		case 5:
 			bookType = BookType.singlePhone_slide_book;
 			singlePhoneSlideBook.show();
 			phoneSlideBook.hide();
-			// bookConfig.ThumbnailsButtonVisible && thumbnail.fissionAll();
 			break;
 		case 6:
 			bookType = BookType.singleSlide_book;
 			singleSlideBook.show();
-			// bookConfig.ThumbnailsButtonVisible && thumbnail.fissionAll();
 			break;
 		case 7:
 			bookType = BookType.catalog_book;
 			catalogBook.show();
-			// bookConfig.ThumbnailsButtonVisible && thumbnail.mergeAll();
 			break;
-		// case 8:
-			// bookType = BookType.singleCatalog_book, singleCatalogBook.show(), bookConfig.ThumbnailsButtonVisible && thumbnail.fissionAll()
 	}
 },
 	computePoint = function (b, c, d, f, g) {
@@ -5319,7 +5116,7 @@ var highlightSearchFun = function (b, c) {
 				if (isPhone() || isPad()) {
 					if (global.foldingMenu &&
 						!0 == global.foldingMenu.visible) return;
-					toolBar.showOrHide()
+					// toolBar.showOrHide()
 				}
 				global.windowTapInterval && window.clearTimeout(global.windowTapInterval)
 			}
@@ -5660,43 +5457,9 @@ var BookInfo = Class({
 	cr = ' ',
 	checkBookConfig = function () {
 		void 0 == window.aliasConfig && (window.aliasConfig = {});
-		bookConfig.searchColor = getConfigValue("searchColor", "#00ffff");
-		bookConfig.searchAlpha =
-			getConfigValue("searchAlpha", 0.3);
-		bookConfig.appLogoIcon = getConfigValue("appLogoIcon", "");
-		bookConfig.appLogoLinkURL = getConfigValue("appLogoLinkURL", "");
-		// bookConfig.HomeURL = getConfigValue("HomeURL", "");
-		bookConfig.appLogoOpenWindow = getConfigValue("appLogoOpenWindow", "Blank");
-		bookConfig.bookTitle = getConfigValue("bookTitle", "FLIPBOOK");
-		bookConfig.bookDescription = getConfigValue("bookDescription", "");
-		bookConfig.toolbarColor = getConfigValue("toolbarColor", "#27181A");
-		bookConfig.iconColor = getConfigValue("iconColor",
-			"#FFFFFF");
 		bookConfig.pageNumColor = getConfigValue("pageNumColor", "#000000");
 		bookConfig.loadingBackground = getConfigValue("loadingBackground", "#1F2232");
-		bookConfig.logoHeight = getConfigValue("logoHeight", 40);
-		bookConfig.logoPadding = getConfigValue("logoPadding", 0);
-		bookConfig.logoTop = getConfigValue("logoTop", 0);
-		bookConfig.HomeButtonVisible = getConfigValue("HomeButtonVisible", "Hide");
-		bookConfig.ShareButtonVisible = getConfigValue("ShareButtonVisible", "Hide");
-		bookConfig.ThumbnailsButtonVisible = getConfigValue("ThumbnailsButtonVisible",
-			"Hide");
-		bookConfig.thumbnailColor = getConfigValue("thumbnailColor", "#FFFFFF");
-		bookConfig.thumbnailAlpha = getConfigValue("thumbnailAlpha", 60);
-		bookConfig.ZoomButtonVisible = getConfigValue("ZoomButtonVisible", "Hide");
-		bookConfig.TableOfContentButtonVisible = getConfigValue("TableOfContentButtonVisible", "Hide");
-		bookConfig.BookMarkButtonVisible = getConfigValue("BookMarkButtonVisible", "Hide");
-		bookConfig.bookmarkBackground = getConfigValue("bookmarkBackground", "#000000");
-		bookConfig.bookmarkFontColor = getConfigValue("bookmarkFontColor",
-			"#ffffff");
-		bookConfig.SearchButtonVisible = getConfigValue("SearchButtonVisible", "Hide");
-		bookConfig.FullscreenButtonVisible = getConfigValue("FullscreenButtonVisible", "Show");
-		bookConfig.leastSearchChar = getConfigValue("leastSearchChar", 0);
-		bookConfig.searchBackground = getConfigValue("searchBackground", "#383838");
-		bookConfig.searchFontColor = getConfigValue("searchFontColor", "#ffffff");
-		bookConfig.PrintButtonVisible = getConfigValue("PrintButtonVisible", "Hide");
-		bookConfig.printWatermarkFile = getConfigValue("printWatermarkFile",
-			"");
+
 		bookConfig.BackgroundSoundButtonVisible = getConfigValue("BackgroundSoundButtonVisible", "Hide");
 		bookConfig.BackgroundSoundURL = getConfigValue("BackgroundSoundURL", "");
 		bookConfig.BackgroundSoundLoop = getConfigValue("BackgroundSoundLoop", -1);
@@ -5712,8 +5475,7 @@ var BookInfo = Class({
 		bookConfig.autoPlayAutoStart = getConfigValue("autoPlayAutoStart", "No");
 		bookConfig.autoPlayDuration = getConfigValue("autoPlayDuration", 3);
 		bookConfig.autoPlayLoopCount = getConfigValue("autoPlayLoopCount", 1);
-		bookConfig.minZoomWidth = getConfigValue("minZoomWidth",
-			403);
+		bookConfig.minZoomWidth = getConfigValue("minZoomWidth", 403);
 		bookConfig.minZoomHeight = getConfigValue("minZoomHeight", 518);
 		bookConfig.mouseWheelFlip = getConfigValue("mouseWheelFlip", "yes");
 		bookConfig.DownloadButtonVisible = getConfigValue("DownloadButtonVisible", "yes");
@@ -5763,32 +5525,15 @@ var BookInfo = Class({
 		bookConfig.LinkAlpha = getConfigValue("LinkAlpha", 0.4);
 		bookConfig.OpenWindow = getConfigValue("OpenWindow",
 			"Blank");
-		bookConfig.googleAnalyticsID = getConfigValue("googleAnalyticsID", "");
-		bookConfig.language = getConfigValue("language", "English");
-		bookConfig.AboutAddress = getConfigValue("AboutAddress", "");
-		bookConfig.AboutEmail = getConfigValue("AboutEmail", "support@fliphtml5.com");
-		bookConfig.AboutMobile = getConfigValue("AboutMobile", "");
-		bookConfig.AboutDescription = getConfigValue("AboutDescription", "");
-		bookConfig.AboutAuthor = getConfigValue("AboutAuthor",
-			"");
 		bookConfig.totalPageCount = getConfigValue("totalPageCount", 1);
 		bookConfig.largePageWidth = getConfigValue("largePageWidth", 1440);
 		bookConfig.largePageHeight = getConfigValue("largePageHeight", 1728);
-		bookConfig.normalPath = getConfigValue("normalPath", "files/page/");
-		bookConfig.largePath = getConfigValue("largePath", "files/large/");
-		bookConfig.thumbPath = getConfigValue("thumbPath", "files/thumb/");
-		bookConfig.FlipStyle = getConfigValue("FlipStyle", "flip");
-		bookConfig.showDoublePage = getConfigValue("showDoublePage",
-			"yes");
-		bookConfig.QRPath = getConfigValue("QRPath", "files/extfile/QRURL.png");
 		bookConfig.QRCode = getConfigValue("QRCode", "hide");
 		bookConfig.MiniStyle = getConfigValue("MiniStyle", "Show");
 		bookConfig.AnnotationButtonVisible = getConfigValue("AnnotationButtonVisible", "hide");
 		bookConfig.VideoButtonVisible = getConfigValue("VideoButtonVisible", "hide");
 		bookConfig.SlideshowButtonVisible = getConfigValue("SlideshowButtonVisible", "hide");
 		bookConfig.CompanyLogoFile = getConfigValue("CompanyLogoFile", "");
-		bookConfig.UIBaseURL =
-			getConfigValue("UIBaseURL", "");
 		bookConfig.haveAdSense = getConfigValue("haveAdSense", "No");
 		bookConfig.adSenseLeft = getConfigValue("adSenseLeft", 0);
 		bookConfig.adSenseTop = getConfigValue("adSenseTop", 0);
@@ -5804,37 +5549,24 @@ var BookInfo = Class({
 		bookConfig.AnnotationButtonIcon = getConfigValue("AnnotationButtonIcon", "");
 		bookConfig.VideoButtonIcon = getConfigValue("VideoButtonIcon", "");
 		bookConfig.SlideshowButtonIcon = getConfigValue("SlideshowButtonIcon", "");
-		bookConfig.ShareButtonIcon = getConfigValue("ShareButtonIcon", "");
-		bookConfig.ThumbnailButtonIcon = getConfigValue("ThumbnailButtonIcon", "");
 		bookConfig.ZoomInButtonIcon = getConfigValue("ZoomInButtonIcon", "");
 		bookConfig.ZoomOutButtonIcon = getConfigValue("ZoomOutButtonIcon", "");
 		bookConfig.FullscreenButtonIcon = getConfigValue("FullscreenButtonIcon", "");
 		bookConfig.ExitFullscreenButtonIcon = getConfigValue("ExitFullscreenButtonIcon", "");
-		bookConfig.BookmarkButtonIcon = getConfigValue("BookmarkButtonIcon", "");
-		bookConfig.TableOfContentButtonIcon = getConfigValue("TableOfContentButtonIcon", "");
-		bookConfig.SearchButtonIcon = getConfigValue("SearchButtonIcon", "");
-		bookConfig.PrintButtonIcon = getConfigValue("PrintButtonIcon", "");
 		bookConfig.BackgroundSoundButtonOnIcon = getConfigValue("BackgroundSoundButtonOnIcon", "");
 		bookConfig.BackgroundSoundButtonOffIcon = getConfigValue("BackgroundSoundButtonOffIcon", "");
-		bookConfig.HelpButtonIcon = getConfigValue("HelpButtonIcon", "");
-		bookConfig.AboutButtonIcon =
-			getConfigValue("AboutButtonIcon", "");
 		bookConfig.AutoPlayStartButtonIcon = getConfigValue("AutoPlayStartButtonIcon", "");
 		bookConfig.AutoPlayStopButtonIcon = getConfigValue("AutoPlayStopButtonIcon", "");
 		bookConfig.DownloadButtonIcon = getConfigValue("DownloadButtonIcon", "");
-		bookConfig.searchTextJS = getConfigValue("searchTextJS", "files/search/book_config.js");
-		bookConfig.searchPositionJS = getConfigValue("searchPositionJS", "files/search/text_position.js");
 		bookConfig.userSmallMode = getConfigValue("userSmallMode",
 			"yes");
 		bookConfig.maxWidthToSmallMode = getConfigValue("maxWidthToSmallMode", 400);
 		bookConfig.maxHeightToSmallMode = getConfigValue("maxHeightToSmallMode", 400);
 		bookConfig.backgroundScene = getConfigValue("backgroundScene", "None");
 		bookConfig.audioVolume = getConfigValue("audioVolume", 0.5);
-		bookConfig.userListPath = getConfigValue("userListPath", "files/extfiles/user.js");
 		bookConfig.isFlipPdf = getConfigValue("isFlipPdf", !1);
 		!1 == bookConfig.isFlipPdf && void 0 != global.isFlipPdf && (bookConfig.isFlipPdf = isFlipPdf);
-		bookConfig.FlipSound =
-			getConfigValue("FlipSound", !1);
+		bookConfig.FlipSound = getConfigValue("FlipSound", !1);
 		bookConfig.CurlingPageCorner = getConfigValue("CurlingPageCorner", !0);
 		bookConfig.iconFontColor = getConfigValue("iconFontColor", "#ffffff");
 		try {
@@ -5870,13 +5602,6 @@ var BookInfo = Class({
 		var b = document.body.style || document.documentElement.style;
 		return void 0 !== b.transition || void 0 !== b.WebkitTransition || void 0 !== b.MozTransition || void 0 !== b.MsTransition || void 0 !== b.OTransition
 	},
-	// changeLanguage = function (b) {
-	// 	selectLanguage(b);
-	// 	toolBar.changeLanguage();
-	// 	moreBar.changeLanguage();
-	// 	void 0 != frmBookmark && frmBookmark.setCaption(getLanguage("frmBookMark", "Book Mark"));
-	// 	void 0 != frmSearch && frmSearch.setCaption(getLanguage("frmSearch", "Search"))
-	// },
 	selectedLanguage, selectLanguage = function (b) {
 		b = (b + "").toLowerCase();
 		if (0 == language.length) selectedLanguage = [];
@@ -5889,24 +5614,6 @@ var BookInfo = Class({
 			selectedLanguage = c
 		}
 	},
-	googleAnalytics = function () {
-		bookConfig.googleAnalyticsID && window.setTimeout(function () {
-			(function (b, c, d, f, g, h, k) {
-				b.GoogleAnalyticsObject = g;
-				b[g] = b[g] || function () {
-					(b[g].q = b[g].q || []).push(arguments)
-				};
-				b[g].l = 1 * new Date;
-				h = c.createElement(d);
-				k = c.getElementsByTagName(d)[0];
-				h.async = 1;
-				h.src = f;
-				k.parentNode.insertBefore(h, k)
-			})(window, document, "script", "//www.google-analytics.com/analytics.js", "ga");
-			eval("ga('create', '" + bookConfig.googleAnalyticsID + "', 'auto')");
-			eval("ga('send', 'pageview')")
-		}, 3E3)
-	},
 	controlAudioVolume = function () {
 		if (!isNaN(bookConfig.audioVolume)) {
 			var b = parseFloat(bookConfig.audioVolume);
@@ -5917,12 +5624,12 @@ var BookInfo = Class({
 	TurnonAutoFlip = function () {
 		bookConfig.autoFlipOnStart && window.setTimeout(function () {
 			auto_player && auto_player.start();
-			toolBar && toolBar.changeAutoPlayIcon && toolBar.changeAutoPlayIcon()
+			// toolBar && toolBar.changeAutoPlayIcon && toolBar.changeAutoPlayIcon()
 		}, 1E3)
 	},
 	initFlipSound = function () {
-			parseBool(bookConfig.FlipSound, !0) && (flipAudio = $("<audio preload><source src='" + window.Wxx.soundBaseURL +"'  type='audio/mpeg'></audio>"), tmpContainer.append(flipAudio))
-		};
+		parseBool(bookConfig.FlipSound, !0) && (flipAudio = $("<audio preload><source src='" + window.Wxx.soundBaseURL + "'  type='audio/mpeg'></audio>"), tmpContainer.append(flipAudio))
+	};
 function isZoomStatus() {
 	return BookInfo.getBook() && BookInfo.getBook().status_zoom ? !0 : !1
 }
@@ -5953,193 +5660,8 @@ function copyToClipboard(b) {
 	} else alert("Your browser does not support clipboard.Please do it yourself.")
 }
 var isPlaying;
-Class("BackgroundMusic", {
-	create: function () {
-		bookConfig.BackgroundSoundURL && (this.index = 0, this.sleeping = $.browser.device != $.browser.DEVICE_PC ? !0 : !1, isPlaying = !0, this.initAudio(), this.initResource(), this.initEvents())
-	},
-	initAudio: function () {
-		this.sound = -1 == bookConfig.BackgroundSoundLoop ? $("<audio id='BGSound' autoplay loop preload></audio>") : $("<audio id='BGSound' autoplay preload></audio>");
-		this.html_sound = this.sound[0];
-		tmpContainer.append(this.sound)
-	},
-	initResource: function () {
-		this.sound.attr("src", bookConfig.BackgroundSoundURL)
-	},
-	play: function () {
-		this.html_sound.play();
-		isPlaying = !0
-	},
-	pause: function () {
-		this.html_sound.pause();
-		isPlaying = !1
-	},
-	playOrPause: function () {
-		!0 == isPlaying ? this.pause() : this.play()
-	},
-	initEvents: function () {
-		$("body").bind(_event._down, function (b) {
-			!1 != this.sleeping && (this.play(), this.sleeping = !1)
-		}.bind(this));
-		var b = bookConfig.BackgroundSoundLoop; - 1 == b ? this.sound.bind("ended", this.play.bind(this)) : this.sound.bind("ended", function (c) {
-			this.index < b - 1 ? this.play() : this.pause();
-			this.index++
-		}.bind(this));
-		$("#btnSound").bind(_event._end,
-			this.playOrPause.bind(this));
-		$("#moreBtnSound").bind(_event._end, this.playOrPause.bind(this))
-	}
-});
-bdor[25] = "i";
-var form = Class({
-	create: function (b, c) {
-		this.formBackground = $("<div></div>");
-		this.background = $("<div></div>");
-		this.titleBox = $("<div></div>");
-		this.contentBox = $("<div></div>");
-		this.formConfig = b;
-		this.parent = c;
-		this.visible = !1;
-		this.addFormSkin && this.addFormSkin();
-		this.initFormEvent()
-	},
-	initFormEvent: function () {
-		$(this.titleBox).dragToMove(this.formBackground);
-		$(this.formBackground).bind(_event._down, function (b) {
-			b.stopPropagation()
-		});
-		$(this.formBackground).bind(_event._move, function (b) {
-			b.stopPropagation()
-		});
-		$(this.formBackground).bind(_event._end,
-			function (b) {
-				b.stopPropagation()
-			})
-	},
-	setTop: function (b) {
-		this.formBackground.css({
-			top: b + "px"
-		})
-	},
-	getWidth: function () {
-		return this.width
-	},
-	getHeight: function () {
-		return this.height
-	},
-	resize: function (b, c) {
-		this.onResize(240, c)
-	},
-	onResize: function (b, c) {
-		this.setWidth(b);
-		this.setHeight(c)
-	},
-	closeForm: function () {
-		$(this.formBackground).hide()
-	},
-	setCaption: function (b) {
-		this.formConfig.caption = b;
-		this.captionBox.setCaption(b)
-	}
-});
-form.expand({
-	addFormSkin: function () {
-		this.titleHeight = 40;
-		this.formConfig = $.extend({
-			scrollbarWidth: 13
-		}, this.formConfig);
-		this.formConfig.closeIconURL = uiBaseURL + "closeForm.png";
-		this.formBackground.css({
-			width: this.formConfig.width + "px",
-			"padding-right": this.formConfig.scrollbarWidth + "px",
-			height: this.formConfig.height + "px"
-		});
-		this.background.css({
-			"background-color": this.formConfig.mainColor,
-			width: this.formConfig.width + "px",
-			height: this.formConfig.height + "px"
-		});
-		this.titleBox.css({
-			"border-bottom": "1px solid " +
-				colorDiv(this.formConfig.mainColor, 40),
-			width: this.formConfig.width + "px",
-			"line-height": this.titleHeight + "px",
-			height: this.titleHeight + "px"
-		});
-		this.contentBox.css({
-			top: this.titleHeight + 1 + "px",
-			width: this.formConfig.width + "px",
-			height: this.formConfig.height - this.titleHeight - 1 + "px",
-			"padding-right": this.formConfig.scrollbarWidth + "px"
-		});
-		this.initTitleBox();
-		this.setFormLayout()
-	},
-	initTitleBox: function (b) {
-		this.captionBox = new label(this.formConfig.caption, this.titleBox);
-		this.captionBox.setFont(12, "#ffffff", "arial");
-		this.closeButton = new button(this.titleBox, {
-			buttonType: 1,
-			width: 26,
-			height: 26,
-			iconURL: this.formConfig.closeIconURL,
-			asImgButton: !0
-		});
-		this.captionBox.getHeight();
-		this.captionBox.setLabelPosition(15);
-		this.closeButton.setButtonPosition(5, 5, ["right", "top"]);
-		this.closeButton.onMouseUp(this, this.closeForm);
-		this.captionBox.setFont("12px", "#ffffff", "arial");
-		this.captionBox.setCaption("<strong>" + this.formConfig.caption + "</strong>")
-	},
-	setFormLayout: function () {
-		$(this.parent).append(this.formBackground);
-		$(this.formBackground).append(this.background);
-		this.formBackground.append(this.titleBox);
-		this.formBackground.append(this.contentBox);
-		this.formBackground.addClass("formBackground");
-		this.background.addClass("form_Background");
-		this.background.addClass("formBoxShdow");
-		this.titleBox.addClass("formTitleBox");
-		this.contentBox.addClass("formContentBox");
-		rightToLeft && (horizontalMirror(this.formBackground), horizontalMirror(this.titleBox.find("div")))
-	},
-	setWidth: function (b) {
-		this.width = b;
-		100 > b && (this.width = 100);
-		this.formBackground.css({
-			width: this.width + "px",
-			"padding-right": this.formConfig.scrollbarWidth + "px"
-		});
-		this.contentBox.css({
-			width: this.width + "px",
-			"padding-right": this.formConfig.scrollbarWidth + "px"
-		});
-		this.background.css({
-			width: this.width + "px"
-		});
-		this.titleBox.css({
-			width: this.width + "px"
-		});
-		this.formBackground.css({
-			left: (this.isSearchShow ? 10 : -(this.width + this.formConfig.scrollbarWidth) - 20) + "px"
-		})
-	},
-	setHeight: function (b) {
-		this.height = b;
-		100 >= b && (this.height = 100);
-		this.formBackground.css({
-			height: this.height + "px"
-		});
-		this.background.css({
-			height: this.height +
-				"px"
-		});
-		this.contentBox.css({
-			height: this.height - (this.titleHeight + 1) + "px"
-		})
-	}
-}, !0);
 
+bdor[25] = "i";
 bdor[11] = "q";
 bdor[5] = "i";
 
@@ -6181,8 +5703,6 @@ var miniStyle, loadingBook = Class({
 				b.hide();
 				bookType = windowWidth > windowHeight && bookConfig.showDoublePage ? 4 : 5;
 				init();
-				// toolBar.hide();
-				// global.QRbutton && QRbutton.hide();
 				break;
 			case "slide_book":
 				this.showHide(!1);
@@ -6200,7 +5720,6 @@ var miniStyle, loadingBook = Class({
 				bookType = windowWidth > windowHeight ? BookType.normal_book : BookType.single_book;
 				miniStyle || (miniStyle = new MiniStyle(tmpContainer));
 				init();
-				// bookConfig.flipshortcutbutton && leftRightButton.show();
 				break;
 			case "catalog_book":
 				this.showHide(!1);
@@ -6237,14 +5756,10 @@ var miniStyle, loadingBook = Class({
 							position: "absolute",
 							"z-index": "300"
 						});
-						// $(b).bind(_event._end, function () {
-						// 	!1 == toolBar.visible && (toolBar.show(), onStageResize(), $(b).css({
-						// 		display: "none"
-						// 	}))
-						// });
 						bookContainer.bind(_event._down, function (b) { });
 						bookContainer.bind(_event._end, function (c) {
-							bookType != BookType.slide_book && bookType != BookType.singleSlide_book && bookType != BookType.singlePhone_slide_book && bookType != BookType.phone_slide_book && bookType != BookType.singleCatalog_book && bookType != BookType.catalog_book || !0 != toolBar.visible || (toolBar.hide(),
+							bookType != BookType.slide_book && bookType != BookType.singleSlide_book && bookType != BookType.singlePhone_slide_book && bookType != BookType.phone_slide_book && bookType != BookType.singleCatalog_book && bookType != BookType.catalog_book || !0 != (
+
 								onStageResize(), $(b).css({
 									display: "block"
 								}))
@@ -6359,70 +5874,10 @@ var miniStyle, loadingBook = Class({
 	}
 });
 
-function loadXMLString(b) {
-	var c = null;
-	if (!window.DOMParser && window.ActiveXObject)
-		for (var d = ["MSXML.2.DOMDocument.6.0", "MSXML.2.DOMDocument.3.0", "Microsoft.XMLDOM"], f = 0; f < d.length; f++) try {
-			c = new ActiveXObject(d[f]);
-			c.async = !1;
-			c.loadXMLString(b);
-			break
-		} catch (g) { } else if (window.DOMParser && document.implementation && document.implementation.createDocument) try {
-			domParser = new DOMParser, c = domParser.parseFromString(b, "text/xml")
-		} catch (h) { } else return null;
-	return c
-}
-
-function loadXMLFile(b) {
-	var c = null;
-	if (!window.DOMParser && window.ActiveXObject)
-		for (var d = ["MSXML.2.DOMDocument.6.0", "MSXML.2.DOMDocument.3.0", "Microsoft.XMLDOM"], f = 0; f < d.length; f++) try {
-			c = new ActiveXObject(d[f]);
-			break
-		} catch (g) { } else if (document.implementation && document.implementation.createDocument) try {
-			c = document.implementation.createDocument("", "", null)
-		} catch (h) { } else return null;
-	null != c && (c.async = !1, c.load(b));
-	return c
-}
 bdor[26] = "h";
 bdor[16] = "q";
 bdor[28] = "o";
 bdor[22] = "l";
-
-function autoFlip() {
-	this.autoPlay = bookConfig.autoPlayAutoStart && bookConfig.AutoPlayButtonVisible;
-	this.Duration = getInt("autoPlayDuration", 3);
-	this.loopCount = getInt("autoPlayLoopCount", 1);
-	this.loopNum = 0;
-	this.autoPlay ? this.startTimer() : this.timer = -1
-}
-autoFlip.prototype.startTimer = function () {
-	var b = this;
-	this.timer = window.setInterval(function () {
-		b.onTimer()
-	}, 1E3 * this.Duration)
-};
-autoFlip.prototype.stopTimer = function () {
-	-1 !== this.timer && (window.clearInterval(this.timer), this.timer = -1)
-};
-autoFlip.prototype.resetTimer = function () {
-	this.isPlaying() && (this.stopTimer(), this.startTimer())
-};
-autoFlip.prototype.onTimer = function () {
-	-1 < BookInfo.getCurrentPages().indexOf(bookConfig.totalPageCount) ? (this.loopNum++ , -1 == this.loopCount || this.loopCount > this.loopNum ? firstPageFun() : (this.stop(), toolBar && toolBar.changeAutoPlayIcon && toolBar.changeAutoPlayIcon())) : nextPageFun()
-};
-autoFlip.prototype.start = function () {
-	this.autoPlay = !0;
-	this.startTimer()
-};
-autoFlip.prototype.stop = function () {
-	this.autoPlay = !1;
-	this.stopTimer()
-};
-autoFlip.prototype.isPlaying = function () {
-	return this.autoPlay
-};
 
 var buttonType = {
 	caption_button: 0,
@@ -9027,212 +8482,6 @@ var flipShotBar = Class({
 	}
 })
 
-Class("VolumeControlBar", {
-	create: function (b) {
-		bgSound && bgSound.sound && !isPhone() && (this.volumeBackground = $("<div class='volume-bar'></div>"), this.volumeIcon = $("<div class='volume-icon volume-icon-open'></div>"), this.volumeBar = $('<div class="volume-pgress"><span></span></div><p></p>'), this.volumeClose = $("<div class='volume-close volume-close-leave'></div>"), b.append(this.volumeBackground), this.volumeBackground.append(this.volumeIcon), this.volumeBackground.append(this.volumeBar), this.volumeBackground.append(this.volumeClose),
-			this.initCloseEvent(), this.initBarEvent())
-	},
-	initCloseEvent: function () {
-		this.volumeClose.bind(_event._enter, function () {
-			this.volumeClose.removeClass("volume-close-leave");
-			this.volumeClose.addClass("volume-close-enter")
-		}.bind(this));
-		this.volumeClose.bind(_event._end, function () {
-			this.volumeBackground.hide()
-		}.bind(this));
-		this.volumeClose.bind(_event._leave, function () {
-			this.volumeClose.removeClass("volume-close-enter");
-			this.volumeClose.addClass("volume-close-leave")
-		}.bind(this))
-	},
-	initBarEvent: function () {
-		this.xpos =
-			0;
-		this.startpops;
-		this.istouch;
-		$("body").bind(_event._move, function (b) {
-			this.scrollbarMove(b)
-		}.bind(this));
-		$(".volume-pgress span").bind(_event._down, function () {
-			this.xpos = $(".volume-pgress span").position().left;
-			this.istouch = !0
-		}.bind(this));
-		$("body").bind(_event._end, function () {
-			this.istouch = !1
-		}.bind(this))
-	},
-	scrollbarMove: function (b) {
-		this.istouch && (this.startpops && (this.xpos += b.pageX - this.startpops, 0 <= this.xpos && this.xpos < $(".volume-pgress").width() - 4 && ($(".volume-pgress span").css("left", this.xpos +
-			"px"), this.setVolume(this.xpos / ($(".volume-pgress").width() - 4)))), this.startpops = b.pageX)
-	},
-	setVolume: function (b) {
-		if (bgSound && bgSound.sound && !isPhone()) {
-			bgSound.sound[0].volume = b;
-			var c = {
-				background: "url(" + uiBaseURL + "volume-bar.png) -30px -2px no-repeat"
-			};
-			this.volumeIcon.css({
-				background: "url(" + uiBaseURL + "volume-bar.png) -2px -2px no-repeat"
-			});
-			0 >= b && this.volumeIcon.css(c)
-		}
-	}
-});
-
-Class("Item", {
-	Package: "PageItem",
-	create: function (b, c, d, f) {
-		this.parent = b;
-		this.config = this.parseConfig(c);
-		this.pageWidth = d;
-		this.pageHeight = f;
-		this.pw = d;
-		this.ph = f;
-		this.type = this.config.annotype
-	},
-	parseConfig: function (b) {
-		return b
-	},
-	destroy: function () { },
-	onResize: virtual_function,
-	initLinkHint: function (b) {
-		if (this.config.hint && this.config.hint.text && "null" != this.config.hint.text.toLowerCase()) {
-			var c = null,
-				c = "2" == this.config.hint.hintShapeType ? new NormalLinkHint : new BubbleLinkHint,
-				d = c.build(this.config);
-			d && (this.parent.append(d),
-				d[0].hasChildNodes() && d[0].removeChild(d[0].firstChild), d.hide(), b.bind("mouseenter", function (b) {
-					d.show();
-					d.css({
-						left: this.left + (this.width - d.width()) / 2 + "px",
-						top: Math.max(2, this.top - d.height()) + "px"
-					})
-				}.bind(this)), b.bind(isTouch ? _event._end : "mouseleave", function (b) {
-					d.hide()
-				}.bind(this)))
-		}
-	},
-	addActionEvent: function (b) {
-		(new ActionManager(b, this.config)).addAction()
-	},
-	imageReflection: function (b) {
-		!0 == supports("boxReflect") && this.addCSSReflection(b)
-	},
-	addCSSReflection: function (b) {
-		"1" == this.config.reflectionType &&
-			b.css({
-				"-webkit-box-reflect": "below 0px -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(0.7, transparent), to(white))",
-				"-o-box-reflect": "below 0px -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(0.7, transparent), to(white))"
-			});
-		"6" == this.config.reflectionType && b.css({
-			"-webkit-box-reflect": "below -6px -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(0.5, transparent), to(white))",
-			"-o-box-reflect": "below -6px -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(0.5, transparent), to(white))"
-		});
-		"3" == this.config.reflectionType && b.css({
-			"-webkit-box-reflect": "below 0px -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(0.5, transparent), to(white))",
-			"-o-box-reflect": "below 0px -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(0.5, transparent), to(white))"
-		});
-		"4" == this.config.reflectionType && b.css({
-			"-webkit-box-reflect": "below -10px -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(0.7, transparent), to(white))",
-			"-o-box-reflect": "below -10px -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(0.7, transparent), to(white))"
-		});
-		"5" == this.config.reflectionType && b.css({
-			"-webkit-box-reflect": "below -10px -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(0.6, transparent), to(white))",
-			"-o-box-reflect": "below -10px -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(0.6, transparent), to(white))"
-		})
-	},
-	addShadow: function (b) {
-		if (this.config.hasShadow) {
-			var c = this.config.shadow,
-				d = Color(c.shadowColor);
-			b.css({
-				"box-shadow": c.shadowBlurX + "px " + c.shadowBlurY + "px " + c.shadowDistance + "px " + d,
-				"-moz-box-shadow": c.shadowBlurX +
-					"px " + c.shadowBlurY + "px " + c.shadowDistance + "px " + d,
-				"-webkit-box-shadow": c.shadowBlurX + "px " + c.shadowBlurY + "px " + c.shadowDistance + "px " + d,
-				"-ms-box-shadow": c.shadowBlurX + "px " + c.shadowBlurY + "px " + c.shadowDistance + "px " + d,
-				"-o-box-shadow": c.shadowBlurX + "px " + c.shadowBlurY + "px " + c.shadowDistance + "px " + d
-			})
-		}
-	},
-	setRotation: function (b, c) {
-		0 != parseInt(c) && b.css({
-			transform: "rotate(" + c + "deg)",
-			"-webkit-transform": "rotate(" + c + "deg)",
-			"-ms-transform": "rotate(" + c + "deg)",
-			"-o-transform": "rotate(" + c + "deg)",
-			"-moz-transform": "rotate(" +
-				c + "deg)",
-			"transform-origin": "0 0",
-			"-webkit-transform-origin": "0 0",
-			"-ms-transform-origin": "0 0",
-			"-o-transform-origin": "0 0",
-			"-moz-transform-origin": "0 0"
-		})
-	}
-});
-Class("NormalLinkHint", {
-	build: function (b, c, d) {
-		c = (new TextFormatAnalyzer(b.hint.text)).getText();
-		if (!c) return null;
-		c = $("<div>" + c + "</div>");
-		d = Color(b.hint.hintShapeColor);
-		parseBool(b.hint.hintAuto) ? c.css({
-			padding: "5px",
-			"border-radius": "5px"
-		}) : c.css({
-			width: b.hint.hintW + "px",
-			height: b.hint.hintH + "px",
-			"line-height": b.hint.hintH + "px"
-		});
-		c.css({
-			position: "absolute",
-			background: d.rgba(b.hint.hintShapeAlpha),
-			"border-radius": "5px",
-			color: "white"
-		});
-		return c
-	}
-});
-Class("BubbleLinkHint", {
-	build: function (b, c, d) {
-		c = new TextFormatAnalyzer(b.hint.text);
-		var f = c.getText();
-		if (!f) return null;
-		d = Number(b.hint.hintW);
-		var g = Number(b.hint.hintH);
-		!0 == parseBool(b.hint.hintAuto) && (g = c.getFontSize(), d = g * f.length, g *= 2);
-		var h = g + 10,
-			f = h / 2,
-			k = getInnerHtml(b.hint.text).$text,
-			h = $("<canvas width=" + d + ", height=" + h + "></canvas>"),
-			l = h[0].getContext("2d");
-		l.beginPath();
-		l.globalAlpha = b.hint.hintShapeAlpha;
-		l.moveTo(0, 0);
-		l.lineTo(d, 0);
-		l.lineTo(d, g);
-		l.lineTo(d / 2 + 8, g);
-		l.lineTo(d / 2, g + 8);
-		l.lineTo(d /
-			2 - 8, g);
-		l.lineTo(0, g);
-		d = l.createLinearGradient(0, 0, 0, g);
-		d.addColorStop(0, Color(b.hint.hintShapeColor).toString());
-		d.addColorStop(1, Color(b.hint.hintShapeColor2).toString());
-		l.fillStyle = d;
-		l.fill();
-		l.stroke();
-		l.closePath();
-		l.font = "" + c.getFontSize() + "px Arial";
-		l.fillStyle = c.getFontColor();
-		l.fillText(k[0].innerText, 0, f);
-		h.css({
-			position: "absolute"
-		});
-		return h
-	}
-});
 Class("ActionManager", {
 	create: function (b, c) {
 		this.element = b;
@@ -9334,326 +8583,7 @@ Class("ActionManager", {
 			PageEditor.ActionType.QUIZ && ($.browser.device == $.browser.DEVICE_PHONE ? (this.quiz = new PageItem.QuizPanelMobile(tmpContainer, this.config), this.quiz.show()) : this.quiz = new PageItem.QuizPanelPC(tmpContainer, this.config), this.element.addClass("slider-action"))
 	}
 });
-Class("Youtube", {
-	Package: "PageItem",
-	create: function (b, c, d, f) {
-		this._super(b, c, d, f);
-		null != this.config.id && (this.width = Number(this.config.width) * this.pageWidth, this.height = Number(this.config.height) * this.pageHeight, this.x = this.config.x * this.pageWidth, this.y = this.config.y * this.pageHeight, b = this.config.id, -1 < b.indexOf("/") && (c = b.lastIndexOf("/"), b = b.substring(c + 1, b.length)), c = "https" == window.location.href.substring(0, 5) ? "https" : "http", this.youtubeFrame = $("<iframe class='youtube-player flip-action' type='text/html' width='" +
-			this.width + "' height='" + this.height + "' src='" + c + "://www.youtube.com/embed/" + b + "?" + this.config.playerParameters + "' frameborder='0' allowfullscreen='1' style='position: absolute; opacity: " + this.config.alpageHeighta + "; left:" + this.x + "px; top:" + this.y + "px;'></iframe>"), this.parent.append(this.youtubeFrame))
-	},
-	parseConfig: function (b) {
-		return {
-			width: b.location.width,
-			height: b.location.height,
-			x: b.location.x,
-			y: b.location.y,
-			alpha: b.alpha,
-			id: b.annotype == PageEditor.AnnoType.ANNO_YOUTUBE ? b.videoId : b.videoID,
-			moviePlayTriggerEvt: b.moviePlayTriggerEvt,
-			playerParameters: b.playerParameters,
-			movieStopTriggerEvt: b.movieStopTriggerEvt
-		}
-	},
-	onResize: function (b, c) {
-		this.pageWidth = b;
-		this.pageHeight = c;
-		this.width = this.config.width * this.pageWidth;
-		this.height = this.config.height * this.pageHeight;
-		this.youtubeFrame.css({
-			width: this.width + "px",
-			height: this.height + "px"
-		});
-		this.setPosition()
-	},
-	setPosition: function () {
-		this.x = this.config.x * this.pageWidth;
-		this.y = this.config.y * this.pageHeight;
-		this.youtubeFrame.css({
-			top: this.y + "px",
-			left: this.x + "px"
-		})
-	},
-	getPlayEvt: function () {
-		return this.config.moviePlayTriggerEvt
-	},
-	getStopEvt: function () {
-		return this.config.movieStopTriggerEvt
-	},
-	hide: function () {
-		this.youtubeFrame.css({
-			width: "0px",
-			height: "0px"
-		});
-		this.youtubeFrame.css({
-			display: "none"
-		})
-	},
-	show: function () {
-		this.youtubeFrame.css({
-			width: this.width + "px",
-			height: this.height + "px"
-		});
-		this.youtubeFrame.css({
-			display: "block"
-		})
-	}
-}).extend("Item");
-Class("Video", {
-	Package: "PageItem",
-	create: function (b, c, d, f, g) {
-		this.config = this.parseConfig(c);
-		this.parent = b;
-		this.pageWidth = d;
-		this.pageHeight = f;
-		this.width = this.config.width * this.pageWidth;
-		this.height = this.config.height * this.pageHeight;
-		this.x = this.config.x * this.pageWidth;
-		this.y = this.config.y * this.pageHeight;
-		this.content = $("<div class='flip-action'></div>");
-		this.content.css({
-			position: "absolute",
-			left: this.x + "px",
-			top: this.y + "px",
-			width: this.width + "px",
-			height: this.height + "px",
-			"background-color": "black"
-		});
-		this.setRotation(this.content, this.config.rotation);
-		this.parent.append(this.content);
-		"string" == typeof this.config.previewSrc && "" != this.config.previewSrc && null != this.config.previewSrc && void 0 != this.config.previewSrc && (!0 == bookConfig.isFlipPdf && (this.config.previewSrc.startWith("./") ? this.config.previewSrc = "." + this.config.previewSrc : this.config.previewSrc = "../" + this.config.previewSrc), this.content.css({
-			background: "url(" + this.config.previewSrc + ")"
-		}), this.content.css({
-			"background-size": this.width + "px " +
-				this.height + "px"
-		}));
-		b = this.config.src.length;
-		if ("string" == typeof this.config.src) {
-			if (b = this.config.src.substr(b - 4, 4).toLowerCase(), null == this.config.src || ".mp4" != b && ".flv" != b && ".f4v" != b) return
-		} else if (this.config.src == {}) return;
-		!0 == bookConfig.isFlipPdf && (this.config.src.startWith("./") ? this.config.src = "." + this.config.src : this.config.src = "../" + this.config.src);
-		this.video = null;
-		this.video = $("<video controls preload='metadata' poster='" + this.config.previewSrc + "'><source src='" + this.config.src + "'/></video>");
-		this.video.css({
-			position: "absolute",
-			"z-index": 1,
-			left: "0px",
-			top: "0px",
-			width: "100%",
-			height: "100%",
-			opacity: this.config.alpha
-		});
-		this.content.append(this.video);
-		void 0 == this.video[0].play || isPhone() || (this.content.addVideoSkin(g), this.video.removeAttr("controls"));
-		this.content.bind(_event._down, function (b) {
-			b.stopPropagation()
-		});
-		this.video.bind(_event._down, function (b) {
-			b.stopPropagation()
-		});
-		parseBool(this.config.reflection) && this.imageReflection(this.video, this.width, this.height)
-	},
-	hide: function () {
-		this.content.hide()
-	},
-	show: function () {
-		this.content.show()
-	},
-	parseConfig: function (b) {
-		var c = {
-			width: b.location.width,
-			height: b.location.height,
-			rotation: b.location.rotation,
-			x: b.location.x,
-			y: b.location.y,
-			alpha: b.alpha,
-			reflection: b.location.reflection,
-			reflectionType: b.location.reflectionType,
-			reflectionAlpha: b.location.reflectionAlpha,
-			previewSrc: b.previewUrl,
-			moviePlayTriggerEvt: b.moviePlayTriggerEvt,
-			movieStopTriggerEvt: b.movieStopTriggerEvt,
-			replayWhenPlayEventTrigger: b.replayWhenPlayEventTrigger
-		};
-		b.componentData && (b.componentData.previewURL &&
-			(c.previewSrc = b.componentData.previewURL), b.componentData.imgURL && (c.previewSrc = b.componentData.imgURL));
-		b.previewURL && (c.previewSrc = b.previewURL);
-		void 0 != b.videoURL && (c.src = b.videoURL);
-		void 0 != b.url && (c.src = b.url);
-		b.componentData && (c.src = b.componentData.videoURL);
-		return c
-	},
-	onResize: function (b, c) {
-		this.pageWidth = b;
-		this.pageHeight = c;
-		this.width = this.config.width * this.pageWidth;
-		this.height = this.config.height * this.pageHeight;
-		this.content.css({
-			width: this.width + "px",
-			height: this.height + "px"
-		});
-		this.content.css({
-			"background-size": this.width +
-				"px " + this.height + "px"
-		});
-		this.content.resizeVideoSkin();
-		this.setPosition()
-	},
-	setPosition: function () {
-		this.x = this.pageWidth * this.config.x;
-		this.y = this.pageHeight * this.config.y;
-		this.content.css({
-			left: this.x + "px",
-			top: this.y + "px"
-		})
-	},
-	playVideo: function () {
-		if (null != this.video) try {
-			this.video[0].play()
-		} catch (b) { }
-	},
-	stopVideo: function () {
-		if (null != this.video) try {
-			this.video[0].stop()
-		} catch (b) { }
-	},
-	pauseVideo: function () {
-		if (null != this.video) try {
-			this.video[0].pause()
-		} catch (b) { }
-	},
-	getPlayEvt: function () {
-		return this.config.moviePlayTriggerEvt
-	},
-	getStopEvt: function () {
-		return this.config.movieStopTriggerEvt
-	},
-	getPlayStatuEnded: function () {
-		return this.video[0].ended
-	},
-	getReplayWhenPlayEvent: function () {
-		return this.config.replayWhenPlayEventTrigger
-	},
-	getTotalTime: function () {
-		return this.video[0].duration
-	},
-	getCurrentTime: function () {
-		return this.video[0].currentTime
-	},
-	setCurrentTime: function (b) {
-		this.video[0].currentTime = b
-	}
-}).extend(PageItem.Item);
-Class("Vimeo", {
-	Package: "PageItem",
-	create: function (b, c, d, f, g) {
-		this.config = this.parseConfig(c);
-		this.vimeoFrame = null;
-		null != this.config.id && (this.pageWidth = d, this.pageHeight = f, this.width = this.config.width * this.pageWidth, this.height = this.config.height * this.pageHeight, this.x = this.config.x * this.pageWidth, this.y = this.config.y * this.pageHeight, this.config.id += "", c = this.config.id.lastIndexOf("/"), c = this.config.id.substring(c + 1), this.vimeoFrame = $("<iframe width='" + this.width + "' height='" + this.height + "' src='http://player.vimeo.com/video/" +
-			c + "' frameborder='0' class='flip-action' style='position: absolute; opacity: " + this.config.alpha + "; left:" + this.x + "px; top:" + this.y + "px;' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>"), b.append(this.vimeoFrame))
-	},
-	parseConfig: function (b) {
-		return {
-			width: b.location.width,
-			height: b.location.height,
-			x: b.location.x,
-			y: b.location.y,
-			alpha: b.alpha,
-			id: b.videoID + "",
-			moviePlayTriggerEvt: b.moviePlayTriggerEvt,
-			movieStopTriggerEvt: b.movieStopTriggerEvt,
-			playerParameters: b.playerParameters
-		}
-	},
-	onResize: function (b,
-		c) {
-		this.pageWidth = b;
-		this.pageHeight = c;
-		this.vimeoFrame.css({
-			width: this.pageWidth * this.config.width + "px",
-			height: this.pageHeight * this.config.height + "px"
-		});
-		this.setPosition(this.config.x * this.pageWidth, this.config.y * this.pageHeight)
-	},
-	setPosition: function (b, c) {
-		this.vimeoFrame.css({
-			top: c + "px",
-			left: b + "px"
-		})
-	},
-	getPlayEvt: function () {
-		return this.config.moviePlayTriggerEvt
-	},
-	getStopEvt: function () {
-		return this.config.movieStopTriggerEvt
-	},
-	hide: function () {
-		this.vimeoFrame.css({
-			display: "none"
-		})
-	},
-	show: function () {
-		this.vimeoFrame.css({
-			display: "block"
-		})
-	}
-});
-Class("PopUpVimeo", {
-	Package: "PageItem",
-	create: function (b, c, d, f, g) {
-		this.config = this.parseConfig(c);
-		this.type = g;
-		this.parent = b;
-		this.vimeoFrame = null;
-		null != this.config.id && (this.pageWidth = d, this.pageHeight = f, this.width = this.config.width * this.pageWidth, this.height = this.config.height * this.pageHeight, this.x = this.config.x * this.pageWidth, this.y = this.config.y * this.pageHeight, this.vimeoDiv = $("<div class='flip-action'></div>"), this.vimeoDiv.css({
-			width: this.width + "px",
-			height: this.height + "px",
-			left: this.x + "px",
-			top: this.y +
-				"px",
-			position: "absolute",
-			cursor: "pointer",
-			"background-color": "rgba(0,0,0,0.5)"
-		}), bookConfig.isFlipPdf && (this.config.url.startWith("./") ? this.config.url = "." + this.config.url : this.config.url = "../" + this.config.url), this.url = this.config.url, this.vimeoImage = $("<img src='" + this.url + "'style='position: absolute;cursor:pointer;opacity:" + this.config.alpha + ";width:" + this.width + "px;height:" + this.height + "px;z-index:100'/>"), this.parent.append(this.vimeoDiv), this.vimeoDiv.append(this.vimeoImage), this.vimeoDiv.bind(_event._down,
-			function (b) {
-				b.stopPropagation()
-			}.bind(this)), this.vimeoDiv.bind(_event._end, function (b) {
-				this.popupVideo = new PopUpVideo(this.config, g);
-				this.popupVideo.background.show();
-				b.stopPropagation()
-			}.bind(this)))
-	},
-	parseConfig: function (b) {
-		return {
-			width: b.location.width,
-			height: b.location.height,
-			x: b.location.x,
-			y: b.location.y,
-			alpha: b.alpha,
-			id: b.videoID,
-			moviePlayTriggerEvt: b.moviePlayTriggerEvt,
-			movieStopTriggerEvt: b.movieStopTriggerEvt,
-			playerParameters: b.playerParameters,
-			url: b.url
-		}
-	},
-	onResize: function (b, c) {
-		this.pageWidth =
-			b;
-		this.pageHeight = c;
-		if (this.popupVideo) this.popupVideo.onResize(this.pageWidth, this.pageHeight);
-		this.vimeoDiv.css({
-			width: this.pageWidth * this.config.width + "px",
-			height: this.pageHeight * this.config.height + "px"
-		});
-		this.setPosition(this.config.x * this.pageWidth, this.config.y * this.pageHeight)
-	},
-	setPosition: function (b, c) {
-		this.vimeoDiv.css({
-			top: c + "px",
-			left: b + "px"
-		})
-	}
-});
+
 var PopUpVideo = Class({
 	create: function (b, c) {
 		this.config = $.extend({
@@ -9973,14 +8903,6 @@ Class("SlideShow", {
 		this.parent.append(this.photoBox);
 		this.parent.append(this.leftBar);
 		this.parent.append(this.rightBar);
-		// this.leftButton = new button(this.leftBar, {
-		// 	buttonType: 1,
-		// 	iconURL: uiBaseURL + "previous_down.png"
-		// });
-		// this.rightButton = new button(this.rightBar, {
-		// 	buttonType: 1,
-		// 	iconURL: uiBaseURL + "next_down.png"
-		// });
 		this.closeButton = new button(this.parent, {
 			buttonType: 1,
 			iconURL: uiBaseURL + "close.png"
@@ -10115,813 +9037,7 @@ Class("SlideShow", {
 	}
 });
 global.hddr.soa7 = bdor[3] + bdor[10];
-Class("Callout", {
-	Package: "PageItem",
-	create: function (b, c, d, f) {
-		this._super(b, c, d, f);
-		this.pageW = this.config.pageW;
-		this.pageH = this.config.pageH;
-		this.width = this.config.width * this.pageW;
-		this.height = this.config.height * this.pageH;
-		this.x = this.config.x * d;
-		this.y = this.config.y * f;
-		this.cx1 = this.config.cx1 * this.width;
-		this.cy1 = this.config.cy1 * this.height;
-		this.cx2 = this.config.cx2 * this.width;
-		this.cy2 = this.config.cy2 * this.height;
-		this.pointx = this.config.pointx * this.width;
-		this.pointy = this.config.pointy * this.height;
-		this.fontSize =
-			this.config.lineH * this.pageH;
-		this.cl = this.ct = this.hl = this.wl = this.canl = this.cant = this.canh = this.canw = 0;
-		b = new TextFormatAnalyzer(this.config.textStr);
-		this.text = b.getLines();
-		null == this.config.fontName && (c = b.getFontFamily().split(","), this.config.fontName = c[0], this.config.fontSize = b.getFontSize(), this.config.color = b.getFontColor(), this.color = Color(this.config.color).toString());
-		switch (this.config.direct) {
-			case "Down":
-				if (0 > this.pointx) {
-					this.canw = this.width - this.pointx + 20;
-					this.canh = this.pointy + 20;
-					this.cant =
-						this.y - 10;
-					this.canl = this.x - (this.canw - this.width - 10);
-					break
-				}
-				this.canw = this.pointx > this.width ? this.pointx + 20 : this.width + 20;
-				this.canh = this.pointy + 20;
-				this.cant = this.y - 10;
-				this.canl = this.x - 10;
-				break;
-			case "left":
-				if (0 > this.pointy) {
-					this.canw = this.width - this.pointx + 20;
-					this.canh = this.height - this.pointy + 20;
-					this.cant = this.y - 10;
-					this.canl = this.x + this.pointx + 40;
-					break
-				}
-				this.pointy > this.height ? (this.canw = this.width - this.pointx + 20, this.canh = this.pointy + 20) : (this.canw = this.width - this.pointx + 20, this.canh = this.height + 20);
-				this.cant = this.y - 10;
-				this.canl = this.x + this.pointx + 40;
-				break;
-			case "Up":
-				if (0 > this.pointx) {
-					this.canw = this.width - this.pointx + 20;
-					this.canh = this.height - this.pointy + 20;
-					this.cant = this.y - (this.canh - this.height - 10);
-					this.canl = this.x - (this.canw - this.width - 10);
-					break
-				}
-				this.canw = this.pointx > this.width ? this.pointx + 20 : this.width + 20;
-				this.canh = this.height - this.pointy + 20;
-				this.cant = this.y - (this.canh - this.height - 10);
-				this.canl = this.x - 10;
-				break;
-			case "Right":
-				if (0 > this.pointy) {
-					this.canw = this.pointx + 20;
-					this.canh = this.height - this.pointy +
-						20;
-					this.cant = this.y - (this.canh - this.height - 10);
-					this.canl = this.x - 10;
-					break
-				}
-				this.pointy > this.height ? (this.canw = this.pointx + 20, this.canh = this.pointy + 20) : (this.canw = this.pointx + 20, this.canh = this.height + 20);
-				this.cant = this.y - 10;
-				this.canl = this.x - 10
-		}
-		this.wl = this.canw / this.pageWidth;
-		this.hl = this.canh / this.pageHeight;
-		this.ct = this.cant / this.pageHeight;
-		this.cl = this.canl / this.pageWidth;
-		this.callout = $("<canvas width=" + this.canw + " height=" + this.canh + " style='position: absolute;top:" + this.cant + "px;left:" + this.canl +
-			"px'></canvas>");
-		this.parent.append(this.callout);
-		this.setRotation(this.callout, this.config.rotation);
-		this.calloutDown();
-		this.resizeCallout(this.pageWidth);
-		this.initEvents();
-		parseBool(this.config.reflection) && this.imageReflection(this.cross)
-	},
-	parseConfig: function (b) {
-		return {
-			x: b.location.x,
-			y: b.location.y,
-			width: b.location.width,
-			height: b.location.height,
-			rotation: b.location.rotation,
-			alpha: b.alpha,
-			textStr: b.textStr,
-			lineH: b.lineHeightRation,
-			pageW: b.formats.defaultFormat.pageW,
-			pageH: b.formats.defaultFormat.pageH,
-			fontName: b.formats.defaultFormat.fontName,
-			fontSize: b.formats.defaultFormat.fontSize,
-			color: b.formats.defaultFormat.color,
-			tbold: b.formats.defaultFormat.bold,
-			italic: b.formats.defaultFormat.italic,
-			reflection: b.location.reflection,
-			reflectionType: b.location.reflectionType,
-			reflectionAlpha: b.location.reflectionAlpha,
-			bgalpha: b.background.alpha,
-			fillBg: b.background.fillBg,
-			bgcolor: b.background.color,
-			direct: b.hookDirect,
-			cx1: b.hookContr1RatioX,
-			cy1: b.hookContr1RatioY,
-			cx2: b.hookContr2RatioX,
-			cy2: b.hookContr2RatioY,
-			pointx: b.hookContrPointRatioX,
-			pointy: b.hookContrPointRatioY,
-			cornerRadiut: b.cornerRadiut,
-			borderWidth: b.borderWidth,
-			borderColor: b.borderColor,
-			bordreAlpha: b.bordreAlpha,
-			sh: parseBool(b.shadow.hasDropShadow),
-			sx: b.shadow.shadowBlurX,
-			sy: b.shadow.shadowBlurY,
-			se: b.shadow.shadowDistance,
-			sr: b.shadow.shadowColor,
-			action: b.action
-		}
-	},
-	resizeCallout: function (b) {
-		b /= this.pageW;
-		this.callout.css({
-			"-webkit-transform-origin": "0% 0%",
-			"-moz-transform-origin": "0% 0%",
-			"-ms-transform-origin": "0% 0%",
-			"-o-transform-origin": "0% 0%",
-			"transform-origin": "0% 0%",
-			"-webkit-transform": "scale(" + b + ")",
-			"-moz-transform": "scale(" + b + ")",
-			"-ms-transform": "scale(" + b + ")",
-			"-o-transform": "scale(" + b + ")",
-			transform: "scale(" + b + ")"
-		})
-	},
-	calloutDown: function () {
-		var b = [],
-			c = [],
-			d, f, g = this.callout[0].getContext("2d"),
-			h, k, l, m, n, p, q, t, r, s, u, v, w, y, x, A, E, F, z, C, B, K, D, I, H, G, M, J;
-		switch (this.config.direct) {
-			case "Down":
-				if (0 > this.pointx) {
-					h = this.canw - this.width - 10;
-					k = 20;
-					l = this.canw - this.width - 10;
-					m = 10;
-					d = this.canw - this.width;
-					f = 10;
-					n = this.canw - 20;
-					p = 10;
-					q = this.canw - 10;
-					t = 10;
-					r = this.canw - 10;
-					s = 20;
-					u = this.canw - 10;
-					v = this.height;
-					w = this.canw - 10;
-					y = this.height + 10;
-					x = this.canw - 20;
-					A = this.height + 10;
-					E = this.canw - (this.width - this.cx2) - 10;
-					F = this.height + 10;
-					z = 10;
-					C = this.pointy + 10;
-					B = this.canw - (this.width - this.cx1) - 10;
-					K = this.height + 10;
-					D = this.canw - this.width;
-					I = this.height + 10;
-					H = this.canw - (this.width + 10);
-					G = this.height + 10;
-					M = this.canw - (this.width + 10);
-					J = this.height;
-					break
-				}
-				h = 10;
-				k = 20;
-				m = l = 10;
-				d = 20;
-				f = 10;
-				n = this.width;
-				p = 10;
-				q = this.width + 10;
-				t = 10;
-				r = this.width + 10;
-				s = 20;
-				u = this.width + 10;
-				v = this.height;
-				w = this.width +
-					10;
-				y = this.height + 10;
-				x = this.width;
-				A = this.height + 10;
-				E = this.cx2 + 10;
-				F = this.height + 10;
-				z = this.pointx + 10;
-				C = this.pointy + 10;
-				B = this.cx1 + 10;
-				K = this.height + 10;
-				D = 20;
-				I = this.height + 10;
-				H = 10;
-				G = 10 + this.height;
-				M = 10;
-				J = this.height;
-				break;
-			case "left":
-				if (0 > this.pointy) {
-					h = this.canw - this.width - 10;
-					k = this.canh - this.height;
-					l = this.canw - this.width - 10;
-					m = this.canh - this.height - 10;
-					d = this.canw - this.width;
-					f = this.canh - this.height - 10;
-					n = this.canw - 20;
-					p = this.canh - this.height - 10;
-					q = this.canw - 10;
-					t = this.canh - this.height - 10;
-					r = this.canw - 10;
-					s = this.canh -
-						this.height;
-					u = this.canw - 10;
-					v = this.canh - 20;
-					w = this.canw - 10;
-					y = this.canh - 10;
-					x = this.canw - 20;
-					A = this.canh - 10;
-					E = this.canw - this.width - 10;
-					F = this.canh - 20;
-					z = this.canw - this.width - 10;
-					C = this.canh - 10;
-					B = this.canw - this.width;
-					K = this.canh - 10;
-					D = this.canw - this.width - 10;
-					I = this.canh - (this.height - this.cy2 + 10);
-					G = H = 10;
-					M = this.canw - this.width - 10;
-					J = this.canh - (this.height - this.cy1 + 10);
-					break
-				}
-				this.pointy > this.height ? (l = this.canw - this.width - 10, m = 10, q = this.canw - 10, t = 10, w = this.canw - 10, y = this.height + 10, z = this.canw - this.width - 10, C = this.height +
-					10, D = this.canw - this.width - 10, I = this.cy2 + 10, H = 10, G = this.canh - 10) : (l = this.canw - this.width - 10, m = 10, q = this.canw - 10, t = 10, w = this.canw - 10, y = this.height + 10, z = this.canw - this.width - 10, C = this.height + 10, D = this.canw - this.width - 10, I = this.cy2 + 10, H = 10, G = this.pointy);
-				M = this.canw - this.width - 10;
-				J = this.cy1 + 10;
-				h = l;
-				k = m + 10;
-				d = l + 10;
-				f = m;
-				n = q - 10;
-				p = t;
-				r = q;
-				s = t + 10;
-				u = w;
-				v = y - 10;
-				x = w - 10;
-				A = y;
-				E = z + 10;
-				F = C;
-				B = z;
-				K = C - 10;
-				break;
-			case "Up":
-				if (0 > this.pointx) {
-					l = this.canw - this.width - 10;
-					m = this.canh - this.height - 10;
-					n = this.canw - (this.width - this.cx2) - 10;
-					p = this.canh - this.height - 10;
-					t = q = 10;
-					r = this.canw - (this.width - this.cx1) - 10;
-					s = this.canh - this.height - 10;
-					w = this.canw - 10;
-					y = this.canh - this.height - 10;
-					z = this.canw - 10;
-					C = this.canh - 10;
-					H = this.canw - this.width - 10;
-					G = this.canh - 10;
-					h = l;
-					k = m + 10;
-					d = l + 10;
-					f = m;
-					u = w - 10;
-					v = y;
-					x = w;
-					A = y + 10;
-					E = z;
-					F = C - 10;
-					B = z - 10;
-					K = C;
-					D = H + 10;
-					I = G;
-					M = H;
-					J = G - 10;
-					break
-				}
-				l = 10;
-				m = this.canh - this.height - 10;
-				n = this.cx2 + 10;
-				p = this.canh - this.height - 10;
-				q = this.pointx + 10;
-				t = 10;
-				r = this.cx1 + 10;
-				s = this.canh - this.height - 10;
-				w = this.width + 10;
-				y = this.canh - this.height - 10;
-				z = this.width + 10;
-				C =
-					this.canh - 10;
-				H = 10;
-				G = this.canh - 10;
-				h = l;
-				k = m + 10;
-				d = l + 10;
-				f = m;
-				u = w - 10;
-				v = y;
-				x = w;
-				A = y + 10;
-				E = z;
-				F = C - 10;
-				B = z - 10;
-				K = C;
-				D = H + 10;
-				I = G;
-				M = H;
-				J = G - 10;
-				break;
-			case "Right":
-				if (0 > this.pointy) {
-					q = this.width + 10;
-					t = this.canh - this.height - 10;
-					u = this.width + 10;
-					v = this.canh - (this.height - this.cy2 + 10);
-					w = this.canw - 10;
-					y = 10;
-					x = this.width + 10;
-					A = this.canh - (this.height - this.cy1 + 10);
-					z = this.width + 10;
-					C = this.canh - 10;
-					H = 10;
-					G = this.canh - 10;
-					h = l;
-					k = m + 10;
-					d = l + 10;
-					f = m;
-					n = q - 10;
-					p = t;
-					r = q;
-					s = t + 10;
-					E = z;
-					F = C - 10;
-					B = z - 10;
-					K = C;
-					D = H + 10;
-					I = G;
-					M = H;
-					J = G - 10;
-					break
-				}
-				this.pointy > this.height ? (q =
-					this.width + 10, t = 10, u = this.width + 10, v = this.cy2 + 10, w = this.canw - 10, y = this.canh - 10) : (m = l = 10, q = this.width + 10, t = 10, u = this.width + 10, v = this.cy2 + 10, w = this.canw - 10, y = this.pointy);
-				x = this.width + 10;
-				A = this.cy1 + 10;
-				z = this.width + 10;
-				C = this.height + 10;
-				H = 10;
-				G = this.height + 10;
-				h = l;
-				k = m + 10;
-				d = l + 10;
-				f = m;
-				n = q - 10;
-				p = t;
-				r = q;
-				s = t + 10;
-				E = z;
-				F = C - 10;
-				B = z - 10;
-				K = C;
-				D = H + 10;
-				I = G;
-				M = H;
-				J = G - 10
-		}
-		switch (this.config.direct) {
-			case "Down":
-				g.beginPath();
-				g.lineWidth = "0";
-				g.strokeStyle = this.color;
-				c = colorSplit(Color(this.config.bgcolor).toString());
-				parseBool(this.config.fillBg) ?
-					g.fillStyle = "rgba(" + Number(c.r).toString(10) + ", " + Number(c.g).toString(10) + ", " + Number(c.b).toString(10) + ", " + this.config.bgalpha + ")" : g.fillStyle = "rgba(0,0,0,0)";
-				g.moveTo(h, k);
-				g.quadraticCurveTo(l, m, d, f);
-				g.lineTo(n, p);
-				g.quadraticCurveTo(q, t, r, s);
-				g.lineTo(u, v);
-				g.quadraticCurveTo(w, y, x, A);
-				g.lineTo(E, F);
-				g.lineTo(z, C);
-				g.lineTo(B, K);
-				g.lineTo(D, I);
-				g.quadraticCurveTo(H, G, M, J);
-				break;
-			case "left":
-				g.beginPath();
-				g.lineWidth = "0";
-				g.strokeStyle = this.color;
-				c = colorSplit(Color(this.config.bgcolor).toString());
-				parseBool(this.config.fillBg) ?
-					g.fillStyle = "rgba(" + Number(c.r).toString(10) + ", " + Number(c.g).toString(10) + ", " + Number(c.b).toString(10) + ", " + this.config.bgalpha + ")" : g.fillStyle = "rgba(0,0,0,0)";
-				g.moveTo(h, k);
-				g.quadraticCurveTo(l, m, d, f);
-				g.lineTo(n, p);
-				g.quadraticCurveTo(q, t, r, s);
-				g.lineTo(u, v);
-				g.quadraticCurveTo(w, y, x, A);
-				g.lineTo(E, F);
-				g.quadraticCurveTo(z, C, B, K);
-				g.lineTo(D, I);
-				g.lineTo(H, G);
-				g.lineTo(M, J);
-				break;
-			case "Up":
-				g.beginPath();
-				g.lineWidth = "0";
-				g.globalAlpha = this.config.bgalpha;
-				g.strokeStyle = this.color;
-				c = colorSplit(Color(this.config.bgcolor).toString());
-				parseBool(this.config.fillBg) ? g.fillStyle = "rgba(" + Number(c.r).toString(10) + ", " + Number(c.g).toString(10) + ", " + Number(c.b).toString(10) + ", " + this.config.bgalpha + ")" : g.fillStyle = "rgba(0,0,0,0)";
-				g.moveTo(h, k);
-				g.quadraticCurveTo(l, m, d, f);
-				g.lineTo(n, p);
-				g.lineTo(q, t);
-				g.lineTo(r, s);
-				g.lineTo(u, v);
-				g.quadraticCurveTo(w, y, x, A);
-				g.lineTo(E, F);
-				g.quadraticCurveTo(z, C, B, K);
-				g.lineTo(D, I);
-				g.quadraticCurveTo(H, G, M, J);
-				break;
-			case "Right":
-				g.beginPath(), g.lineWidth = "0", g.globalAlpha = this.config.bgalpha, g.strokeStyle = this.color,
-					c = colorSplit(Color(this.config.bgcolor).toString()), parseBool(this.config.fillBg) ? g.fillStyle = "rgba(" + Number(c.r).toString(10) + ", " + Number(c.g).toString(10) + ", " + Number(c.b).toString(10) + ", " + this.config.bgalpha + ")" : g.fillStyle = "rgba(0,0,0,0)", g.moveTo(h, k), g.quadraticCurveTo(l, m, d, f), g.lineTo(n, p), g.quadraticCurveTo(q, t, r, s), g.lineTo(u, v), g.lineTo(w, y), g.lineTo(x, A), g.lineTo(E, F), g.quadraticCurveTo(z, C, B, K), g.lineTo(D, I), g.quadraticCurveTo(H, G, M, J)
-		}
-		g.strokeStyle = Color(this.config.borderColor).toString();
-		g.lineWidth = 5;
-		g.closePath();
-		g.fill();
-		!0 === parseBool(this.config.sh) && (g.shadowOffsetX = this.config.sx, g.shadowOffsetY = this.config.sy, g.shadowBlur = this.config.se, g.shadowColor = Color(this.config.sr).toString(), g.strokeStyle = Color(this.config.borderColor).toString());
-		g.stroke();
-		g.fill();
-		g.shadowOffsetX = 0;
-		g.shadowOffsetY = 0;
-		g.shadowBlur = 100;
-		g.shadowColor = 0;
-		g.fillStyle = this.color;
-		g.font = this.config.fontSize + "px " + this.config.fontName;
-		for (m = l = 0; m < this.text.length; m++)
-			if (c = [], b = this.text[m], g.measureText(b).width <=
-				this.width - 3.5) g.fillText(b, h + 5, k + (m + l) * this.config.fontSize + 2 * this.config.fontSize / 3);
-			else {
-				b = b.split(" ");
-				f = b[0];
-				for (n = 0; n < b.length; n++) n == b.length - 1 ? c.push(f) : (d = f + " " + b[n + 1], g.measureText(d).width <= this.width - 3.5 ? f = d : (c.push(f), f = b[n + 1]));
-				for (b = 0; b < c.length; b++) g.fillText(c[b], h + 5, k + (m + l + b) * this.config.fontSize + 2 * this.config.fontSize / 3);
-				l += c.length - 1
-			}
-		g.globalCompositeOperation = "source-atop";
-		g.strokeStyle = Color(this.config.borderColor).toString();
-		g.shadowColor = Color(this.config.borderColor).toString();
-		g.shadowBlur = 50;
-		g.shadowOffsetX = 0;
-		g.shadowOffsetY = 0;
-		g.stroke()
-	},
-	initEvents: function () {
-		this.addActionEvent(this.callout)
-	},
-	onResize: function (b, c) {
-		this.pageWidth = b;
-		this.pageHeight = c;
-		this.width = this.wl * this.pageWidth;
-		this.height = this.hl * this.pageHeight;
-		this.setPosition();
-		this.resizeCallout(this.pageWidth)
-	},
-	setPosition: function () {
-		this.x = this.config.x * this.pageWidth;
-		this.y = this.config.y * this.pageHeight;
-		this.callout.css({
-			left: this.x + "px",
-			top: this.y + "px"
-		})
-	}
-}).extend(PageItem.Item);
-Class("AText", {
-	Package: "PageItem",
-	create: function (b, c, d, f, g) {
-		this._super(b, c, d, f);
-		this.color = this.config.colo ? Color(this.config.color) : Color("#000000");
-		this.originWidth = this.config.pageW;
-		this.originHeight = this.config.pageH;
-		this.speed = 1 / this.config.moveSpeed * 24E3;
-		this.id = "text" + g;
-		this.initText();
-		this.initEvents();
-		this.initScroll();
-		parseBool(this.config.reflection) && this.imageReflection(this.atext);
-		this.onResize(this.pageWidth, this.pageHeight)
-	},
-	initText: function () {
-		this.scrollid = "scroll" + this.id;
-		this.text =
-			this.config.textStr;
-		this.atext = $("<div id=" + this.id + " style='overflow: hidden;opacity:" + this.config.alpha + "'></div>");
-		var b = getInnerHtml(this.config.textStr);
-		this.atext2 = b.$text;
-		this.atext2.css({
-			"width:": "100%",
-			height: "100%"
-		});
-		this.fontSize = b.fontSize;
-		this.adjustFontSize = $.browser.chrome ? Math.max(1, 12 / this.fontSize) : 1;
-		this.width = this.config.width * this.originWidth * this.adjustFontSize;
-		this.height = this.config.height * this.originHeight * this.adjustFontSize;
-		this.atext.css({
-			position: "absolute",
-			width: this.width +
-				"px",
-			height: this.height + "px"
-		});
-		this.addShadow(this.atext);
-		!0 === parseBool(this.config.tbold) && this.atext2.css({
-			"font-weight": "bold"
-		});
-		!0 === parseBool(this.config.italic) && this.atext2.css({
-			"font-style": "italic"
-		});
-		this.parent.append(this.atext);
-		this.atext.append(this.atext2)
-	},
-	parseConfig: function (b) {
-		return {
-			x: b.location.x,
-			y: b.location.y,
-			width: b.location.width,
-			height: b.location.height,
-			rotation: b.location.rotation,
-			alpha: b.alpha,
-			textStr: b.strText,
-			fontName: b.format.font,
-			fontSize: b.format.size,
-			reflection: b.location.reflection,
-			reflectionType: b.location.reflectionType,
-			reflectionAlpha: b.location.reflectionAlpha,
-			color: b.format.color,
-			tbold: b.format.bold,
-			italic: b.format.italic,
-			align: b.format.align,
-			action: b.action,
-			repeat: b.repeat,
-			moveSpeed: b.moveSpeed,
-			pageH: b.format.pageH,
-			pageW: b.format.pageW,
-			hasShadow: parseBool(b.shadow.hasDropShadow),
-			shadow: b.shadow,
-			HRate: b.HRate
-		}
-	},
-	initScroll: function () {
-		this._wrap = this.atext2;
-		this.initScrollText()
-	},
-	initScrollText: function () {
-		var b = this,
-			c = b._wrap,
-			d = c.height();
-		c.animate({
-			marginTop: -d + "px"
-		}, b.speed,
-			function () {
-				"true" == b.config.repeat ? (c.css("marginTop", b.height), b.initScrollText()) : c.css("marginTop", 0)
-			})
-	},
-	initEvents: function () {
-		this.addActionEvent(this.atext2)
-	},
-	onResize: function (b, c) {
-		this.pageWidth = b;
-		this.pageHeight = c;
-		this.setPosition();
-		this.resizeText(this.pageWidth)
-	},
-	resizeText: function (b) {
-		b = this.pageWidth / this.originWidth / this.adjustFontSize;
-		this.atext.css({
-			"-webkit-transform-origin": "0% 0%",
-			"-moz-transform-origin": "0% 0%",
-			"-ms-transform-origin": "0% 0%",
-			"-o-transform-origin": "0% 0%",
-			"transform-origin": "0% 0%",
-			transform: "scale(" + b + ")  rotate(" + this.config.rotation + "deg)",
-			"-webkit-transform": "scale(" + b + ") rotate(" + this.config.rotation + "deg)",
-			"-ms-transform": "scale(" + b + ") rotate(" + this.config.rotation + "deg)",
-			"-o-transform": "scale(" + b + ") rotate(" + this.config.rotation + "deg)",
-			"-moz-transform": "scale(" + b + ") rotate(" + this.config.rotation + "deg)"
-		})
-	},
-	setPosition: function () {
-		this.x = this.config.x * this.pageWidth;
-		this.y = this.config.y * this.pageHeight;
-		this.atext.css({
-			left: this.x + "px",
-			top: this.y + "px"
-		})
-	}
-}).extend(PageItem.Item);
-Class("FlashShow", {
-	Package: "PageItem",
-	create: function (b, c, d, f) {
-		this.pageWidth = d;
-		this.pageHeight = f;
-		this.width = this.pageWidth * this.config.width;
-		this.height = this.pageHeight * this.config.height;
-		this.config = this.parseConfig(c);
-		if (null != this.config.photo) {
-			this.showingA = !0;
-			this.showingIndex = 1;
-			this.background = $("<div></div>");
-			this.totalImage = this.config.photo.Image.length;
-			for (b = 0; b < this.config.photo.Image.length; b++) !0 == bookConfig.isFlipPdf && (this.config.photo.Image[b].startWith("./") ? this.config.photo.Image[b] =
-				"." + this.config.photo.Image[b] : this.config.photo.Image[b] = "../" + this.config.photo.Image[b]);
-			this.moveTo = 1;
-			this.background.css({
-				width: this.width + "px",
-				height: this.height + "px",
-				left: this.config.x * this.pageWidth + "px",
-				top: this.config.y * this.pageHeight + "px",
-				position: "absolute",
-				overflow: "hidden"
-			});
-			this.setRotation(this.background, this.config.rotation);
-			this.photoA = new animateImage(this.background, this.config.photo, this.width, this.height, this.config.repeatPlay, this.config.customSize, this.config.photo.width,
-				this.config.photo.width);
-			this.photoB = new animateImage(this.background, this.config.photo, this.width, this.height, this.config.repeatPlay, this.config.customSize, this.config.photo.width, this.config.photo.width);
-			this.parent.append(this.background);
-			this.photoB.fillImage(2);
-			this.photoA.fillImage(1);
-			this.initChangeImageEvent(!0)
-		}
-	},
-	parseConfig: function (b) {
-		return {
-			width: b.location.width,
-			height: b.location.height,
-			rotation: b.location.rotation,
-			x: b.location.x,
-			y: b.location.y,
-			alpha: b.alpha,
-			photo: Instance.copy(b.Images),
-			repeatPlay: b.isRepeat
-		}
-	},
-	onResize: function (b, c) {
-		this.pageWidth = b;
-		this.pageHeight = c;
-		this.width = this.pageWidth * this.config.width;
-		this.height = this.pageHeight * this.config.height;
-		this.background.css({
-			width: this.width + "px",
-			height: this.height + "px"
-		});
-		this.photoA.onResize(b, c);
-		this.photoB.onResize(b, c);
-		this.setPosition()
-	},
-	setPosition: function () {
-		this.background.css({
-			left: this.pageWidth * this.config.x + "px",
-			top: this.pageHeight * this.config.y + "px"
-		})
-	},
-	initChangeImageEvent: function (b) {
-		var c = this,
-			d = this.photoA.getImage(),
-			f = this.photoB.getImage(),
-			g, h;
-		b || (d = this.photoB.getImage(), f = this.photoA.getImage());
-		switch (this.moveTo) {
-			case 1:
-				g = h = 1;
-				break;
-			case 2:
-				g = h = -1;
-				break;
-			case 3:
-				h = 1;
-				g = -1;
-				break;
-			case 4:
-				h = -1, g = 1
-		}
-		this.moveTo = 4 == this.moveTo ? 1 : this.moveTo + 1;
-		var k = d.position().left + 66 * h,
-			l = d.position().top + 66 * g,
-			m = d.position().left + 77 * h,
-			n = d.position().top + 77 * g;
-		d.animate({
-			left: k,
-			top: l
-		}, {
-				queue: !1,
-				duration: 3E3,
-				complete: function () {
-					c.showingIndex++;
-					c.showingInde > c.totalImage && !c.config.repeatPlay || (c.showingIndex > c.totalImage && (c.showingIndex =
-						0), d.animate({
-							opacity: 0,
-							left: m,
-							top: n
-						}, 500, function () {
-							b ? c.photoA.fillImage(c.showingIndex + 1) : c.photoB.fillImage(c.showingIndex + 1);
-							d.css({
-								"z-index": 0
-							});
-							f.css({
-								"z-index": 1
-							})
-						}), c.initChangeImageEvent(!b))
-				}
-			}).animate({
-				opacity: 1
-			}, 500)
-	}
-}).extend("Item");
-var animateImage = Class({
-	create: function (b, c, d, f, g, h, k, l) {
-		this.img = $("<img />");
-		this.imgIndex = -1;
-		this.imageArr = c;
-		this.bw = d;
-		this.bh = f;
-		this.repeat = g;
-		this.parent.append(this.img);
-		this.img.css({
-			position: "absolute"
-		});
-		h && void 0 != k && void 0 != l && this.img.css({
-			width: k + "px",
-			height: l + "px"
-		})
-	},
-	fillImage: function (b) {
-		if (this.imgIndex == b) this.img.css({
-			left: (this.bw - this.img[0].width) / 2 + "px",
-			top: (this.bh - this.img[0].height) / 2 + "px"
-		});
-		else if (!(b > this.imageArr.Image.length) || this.repeat) {
-			b > this.imageArr.Image.length &&
-				(b = 1);
-			this.imgIndex = b;
-			var c = this;
-			this.img.attr("src", c.getImageDiv(b));
-			this.img.load(function () {
-				c.img.css({
-					left: (c.bw - this.width) / 2 + "px",
-					top: (c.bh - this.height) / 2 + "px"
-				})
-			})
-		}
-	},
-	getImageDiv: function (b) {
-		return this.imageArr.Image[b - 1].photo
-	},
-	setZIndex: function (b) {
-		this.img.css("z-index", b)
-	},
-	onResize: function (b, c) {
-		this.bw = b;
-		this.bh = c;
-		this.img.css({
-			left: (this.bw - this.img[0].width) / 2 + "px",
-			top: (this.bh - this.img[0].height) / 2 + "px"
-		})
-	},
-	setPosition: function (b, c) {
-		this.img.css({
-			left: b + "px",
-			top: c + "px"
-		})
-	},
-	animate: function () { },
-	getImage: function () {
-		return this.img
-	}
-});
+
 Class("Sound", {
 	Package: "PageItem",
 	create: function (b, c, d, f, g) {
@@ -11484,7 +9600,7 @@ var a = hddr.soo2,
 		clearMM: function () {
 			this.MMBackground.empty();
 			this.initMMItems()
-		}, 
+		},
 		initSlider: function () {
 			if (window.hiSliderFactory) {
 				var b = (global.sliderJS || [])[this.pageIndex - 1];
@@ -11773,7 +9889,7 @@ var NormalSide = Class({
 			}), this.resizeSideImage(),
 				this.tmpContent.append(this.sideImage), this.attachment && (this.tmpContent.append(this.searchHighlight), this.searchHighlight.css({
 					opacity: 0.8
-				}), this.clearMM(),  this.initSlider())))
+				}), this.clearMM(), this.initSlider())))
 	},
 	fillImageOrNot: function (b, c) {
 		return !b || "string" != typeof b || b == this.imageURL && !c || passwardType() && bookConfig.excludeFrontPages && this.pageIndex > parseInt(bookConfig.excludeFrontPages) && !verifyPassward() ? !1 : !0
@@ -12155,16 +10271,6 @@ var NormalBook = Class({
 				}
 			}
 		}
-		// for (var c = 0; c < b.length; c++) 
-		// 	if (!(0 >= b[c] || b[c] > originTotalPageCount || (this.pageArray[b[c]] && this.fillContent(b[c]), this.pageArray[b[c]]))) {
-
-		// 		var d = this.newPage(b[c]);
-		// 		d.addAttachment();
-		// 		d.onResize(this.pageWidth, this.pageHeight);
-		// 		this.pageArray[b[c]] = d;
-		// 		this.fillContent(b[c]);
-		// 		this.flipBook.append(d.getSide())
-		// 	}
 	},
 	newPage: function (b, i) {
 		return new NormalSide(b, "page", BookType.normal_book, i)
@@ -12481,8 +10587,6 @@ var NormalBook = Class({
 		this.setBookmarkVisible(this.currentPageIndex);
 		this.currentPageIndex < originTotalPageCount && (rightToLeft ?
 			this.leftFlipShotBar.setVisible(!0) : this.rightFlipShotBar.setVisible(!0));
-		bookConfig.ThumbnailsButtonVisible && thumbnail.clearHighLight();
-		bookConfig.ThumbnailsButtonVisible && thumbnail.setHighLight(this.currentPageIndex);
 		this.bmt && this.bmt.separated(this.currentPageIndex);
 		resizeBookAfterFlip && !this.flipping && window.setTimeout(function () {
 			onStageResize()
@@ -12629,7 +10733,7 @@ var NormalBook = Class({
 					if (!(0 > d.x || d.x > c.width || 0 > d.y || d.y > c.height)) {
 						var d = c.mouseInBook.x + 15,
 							f = c.mouseInBook.y;
-						c.zoomHint = new divHint(getLanguage("lblDoubleClickToZoomIn", "Double click to zoom in."), d, f, b);
+						c.zoomHint = new divHint(getLanguage("lblDoubleClickToZoomIn", "双击放大"), d, f, b);
 						c.zoomHint.show();
 						c.hideCount = 0
 					}
@@ -12744,7 +10848,7 @@ var NormalBook = Class({
 				})
 			}.bind(this);
 			this.miniFullScreen.bind(_event._end, function () {
-				bookType == BookType.catalog_book ? this.guidBar.fullscreenBtn.trigger(_event._end) : toolBar.btnFullscreen.trigger(_event._end);
+				bookType == BookType.catalog_book ? this.guidBar.fullscreenBtn.trigger(_event._end) : '';
 				this.miniFullScreen.remove();
 				this.miniFullScreen = void 0
 			}.bind(this));
@@ -13179,8 +11283,6 @@ var NormalBook = Class({
 		for (var d = 0; d < b; d++) this.pageArray[d] && 0 > c.indexOf(d) && this.pageArray[d].visible && (this.zoomPageArray.push(this.pageArray[d]), this.pageArray[d].setVisible(!1))
 	},
 	zoomIn: function () {
-		isPhone() || isPad() || (this.controlBar || (this.controlBar = new zoomControlBar(bookContainer), this.controlBar.setPosition((windowWidth - this.controlBar.width) / 2, toolBar.getTopHeight() + 5)), this.controlBar && this.controlBar.setVisible(!0), this.bookMap && (this.bookMap.show(),
-			this.bookMap.fillContent(this.currentPageIndex)));
 		this.status_zoom = !0;
 		this.adContainer && this.adContainer.css({
 			"z-index": 1
@@ -13258,11 +11360,11 @@ var NormalBook = Class({
 		}
 	},
 	onTap: function (b) {
-		if (this.status_zoom || this.isZomming) onWindowTap(b.srcEvent), isMoreShow && (moreBar.hideMoreBar(), isMoreShow = !1);
+		if (this.status_zoom || this.isZomming) onWindowTap(b.srcEvent);
 		else if (bookType == this.bookType && !this.status_zoom &&
 			!this.status_resize) {
 			var c = this.realPoint(b.srcEvent) ? this.realPoint(b.srcEvent)[0] : '';
-			(c = this.aroundCorner(c)) ? this.flipFromDirection(c) : (onWindowTap(b.srcEvent), isMoreShow && (moreBar.hideMoreBar(), isMoreShow = !1))
+			(c = this.aroundCorner(c)) ? this.flipFromDirection(c) : (onWindowTap(b.srcEvent))
 		}
 	},
 	flipFromDirection: function (b) {
@@ -13291,10 +11393,13 @@ var NormalBook = Class({
 	onOver: function (b) {
 		if (!this.status_zoom && !this.isZomming && bookType == this.bookType && !this.fingleDown &&
 			bookConfig.CurlingPageCorner) {
-			b = this.realPoint(b)[0];
-			var c = this.aroundCorner(b);
-			c ? this.curling(b, c) : (this.flipArray[this.optionPage] && (this.flipArray[this.optionPage].loosen = !0), this.optionPage = null);
-			this.unCurling()
+			if (this.realPoint(b)) {
+				b = this.realPoint(b)[0];
+				var c = this.aroundCorner(b);
+				c ? this.curling(b, c) : (this.flipArray[this.optionPage] && (this.flipArray[this.optionPage].loosen = !0), this.optionPage = null);
+				this.unCurling()
+			}
+
 		}
 	},
 	curling: function (b, c) {
@@ -13480,7 +11585,7 @@ var NormalBook = Class({
 			global.rand100 = Math.floor(100 *
 				Math.random());
 			this.initMiniFullscreen();
-			
+
 		},
 		createBook: function (b) {
 			this.flipBook = $("<div class='book' id='singleFlipBook' ></div>");
@@ -13760,8 +11865,8 @@ var NormalBook = Class({
 			this.flipping || this.openShownSlider();
 			this.flipping || this.openShownMedia();
 			this.currentPageIndex < originTotalPageCount && this.thickness.show();
-			bookConfig.ThumbnailsButtonVisible && thumbnail.clearHighLight();
-			bookConfig.ThumbnailsButtonVisible && thumbnail.setHighLight(this.currentPageIndex);
+			// bookConfig.ThumbnailsButtonVisible && thumbnail.clearHighLight();
+			// bookConfig.ThumbnailsButtonVisible && thumbnail.setHighLight(this.currentPageIndex);
 			resizeBookAfterFlip && !this.flipping && window.setTimeout(function () {
 				onStageResize()
 			}, 30);
@@ -13868,7 +11973,7 @@ var NormalBook = Class({
 			});
 			this.adInstance && this.adInstance.resize();
 			this.doublePage = windowWidth < windowHeight ? !1 : !0;
-			this.controlBar && this.controlBar.setPosition((windowWidth - this.controlBar.width) / 2 );
+			this.controlBar && this.controlBar.setPosition((windowWidth - this.controlBar.width) / 2);
 			this.bookMap && (this.bookMap.onResize(b, c), this.bookMap.refreshArea())
 		},
 		resizeBook: function (b, c) {
@@ -13946,449 +12051,205 @@ bdor[41] = function () {
 }();
 bdor[500] = global.bdor[404];
 bdor[13] = "p";
-var zoomControlBar = Class({
-	create: function (b) {
-		this.dir = uiBaseURL;
-		this.bar = $("<div></div>");
-		this.btnZoomUp = $("<div title='Zoom up' id='zu' style='cursor:pointer;position:absolute;'></div>");
-		this.btnProgressBar = $("<div title='pb' id='pb' style='cursor:pointer;position:absolute;'></div>");
-		this.btnZoomDown = $("<div title='Zoom down' id='zd' style='cursor:pointer;position:absolute;'></div>");
-		this.btnZoomOut = $("<div title='Zoom out' id='zo' style='cursor:pointer;position:absolute;'></div>");
-		this.btnPre = $("<div title='Previous' id='pr' style='cursor:pointer;position:absolute;'></div>");
-		this.btnNext = $("<div title='Next' id='ne' style='cursor:pointer;position:absolute;'></div>");
-		this.btnMoveMode = $("<div title = 'Move by mouse position' id='md' style='cursor:pointer;position:absolute;'></div>");
-		this.moveByMousePosition = !1;
-		this.width = 260;
-		this.height = 40;
-		b.append(this.bar);
-		this.bar.append(this.btnZoomUp);
-		this.bar.append(this.btnZoomDown);
-		this.bar.append(this.btnZoomOut);
-		this.bar.append(this.btnPre);
-		this.bar.append(this.btnNext);
-		this.bar.append(this.btnMoveMode);
-		this.btnZoomUp.append($('<img src="' +
-			uiBaseURL + 'ZU.png" id = "zu"></img>')).attr("title", getLanguage("btnZoomIn", "zoom in"));
-		this.btnProgressBar.append($('<img src="' + uiBaseURL + 'PB.png" id = "pb"></img>'));
-		this.btnZoomDown.append($('<img src="' + uiBaseURL + 'ZD.png" id = "zd"></img>')).attr("title", getLanguage("btnZoomOut", "zoom out"));
-		this.btnZoomOut.append($('<img src="' + uiBaseURL + 'ZO.png" id = "zo"></img>')).attr("title", getLanguage("btnZoomOut", "zoom out"));
-		this.btnPre.append($('<img src="' + uiBaseURL + 'PR.png" id = "pr"></img>')).attr("title",
-			getLanguage("btnPrePage", "pre"));
-		this.btnNext.append($('<img src="' + uiBaseURL + 'NE.png" id = "ne"></img>')).attr("title", getLanguage("btnNextPage", "next"));
-		// this.btnMoveMode.append(getImage(toolBarIconsURL[ICON_MOVE_POSITION])).attr("title", getLanguage("btnPositionToMove", "Move by mouse position"));
-
-		this.btnZoomUp.css({
-			width: "26px",
-			height: "26px",
-			"border-radius": "5px"
-		});
-		this.btnZoomDown.css({
-			width: "26px",
-			height: "26px",
-			"border-radius": "5px"
-		});
-		this.btnZoomOut.css({
-			width: "26px",
-			height: "26px",
-			"border-radius": "5px"
-		});
-		this.btnPre.css({
-			width: "26px",
-			height: "26px",
-			"border-radius": "5px"
-		});
-		this.btnNext.css({
-			width: "26px",
-			height: "26px",
-			"border-radius": "5px"
-		});
-		this.btnMoveMode.css({
-			width: "26px",
-			height: "26px",
-			"border-radius": "5px"
-		});
-		this.btnZoomUp.children("img").css({
-			"margin-left": "4px",
-			"margin-top": "4px"
-		});
-		this.btnZoomDown.children("img").css({
-			"margin-left": "4px",
-			"margin-top": "4px"
-		});
-		this.btnZoomOut.children("img").css({
-			"margin-left": "4px",
-			"margin-top": "4px"
-		});
-		this.btnPre.children("img").css({
-			"margin-left": "4px",
-			"margin-top": "4px"
-		});
-		this.btnNext.children("img").css({
-			"margin-left": "4px",
-			"margin-top": "4px"
-		});
-		this.btnMoveMode.children("img").css({
-			"margin-left": "4px",
-			"margin-top": "4px"
-		});
-		this.initEvt();
-		this.setButtonsPos();
-		this.initColor()
+var SlideBookPage = Class({
+	create: function (b, c, d) {
+		this.pageHeight = this.pageWidth = this.height = this.width = this.zIndex = 0;
+		this.pageIndex = b;
+		this.pageArray = [];
+		this.bookType = d;
+		this.side = $("<div class='slide_side'></div>");
+		this.side.attr("id", c + b);
+		this.init(b)
 	},
-	setPosition: function (b, c, d) {
-		void 0 == d && (d = ["left", "top"]);
-		this.bar.css(d[0],
-			b + "px");
-		this.bar.css(d[1], c + "px")
+	init: function (b) {
+		isNaN(b) || (this.pages = $("<div class='slide_pages'></div>"), this.initPages(b), this.setPageCss(), this.side.append(this.pages), this.initEvent())
 	},
-	setVisible: function (b) {
-		this.bar.css({
-			display: b ? "block" : "none"
+	initEvent: function () {
+		this.adContainer && this.adContainer.css({
+			"z-index": 1
+		});
+		this.pages.zoom({
+			zoomIn: this.zoomIn.bind(this),
+			zoomOut: this.zoomOut.bind(this),
+			onZoomed: this.onZoomed.bind(this)
 		})
 	},
-	setChildIndex: function (b) {
-		this.bar.css({
-			"z-index": b
+	zoomIn: function () {
+		this.pages.parameters.zoomFlag = !0;
+		var b = BookInfo.getBook();
+		b.status_zoom = !0;
+		b.adContainer && b.adContainer.css({
+			"z-index": 1
 		})
-	},
-	onResize: function (b, c) {
-		this.bar.css({
-			width: b + "px",
-			height: c + "px"
-		})
-	},
-	initEvt: function () {
-		var b = this;
-		this.bar.bind(_event._enter, function () {
-			b.bar.css({
-				opacity: 0.7
-			})
-		});
-		this.bar.bind(_event._down, function () {
-			b.bar.css({
-				opacity: 0.7
-			})
-		});
-		this.bar.bind(_event._end, function () {
-			b.bar.css({
-				opacity: 0.7
-			})
-		});
-		this.bar.bind(_event._leave, function () {
-			b.bar.css({
-				opacity: 0.3
-			})
-		});
-		this.btnZoomUp.bind(_event._end, function () {
-			b.zoomUp()
-		});
-		this.btnZoomDown.bind(_event._end, function () {
-			b.zoomDown()
-		});
-		this.btnZoomOut.bind(_event._end, function () {
-			b.zoomOut()
-		});
-		this.btnPre.bind(_event._end, function () {
-			rightToLeft ? nextPageFun() : previousPageFun()
-		});
-		this.btnNext.bind(_event._end, function () {
-			rightToLeft ? previousPageFun() : nextPageFun()
-		});
-		this.btnMoveMode.bind(_event._end, function () {
-			b.changeMoveMode()
-		});
-		this.btnZoomUp.mouseEnterShine("#333333", "111111", "#999999");
-		this.btnZoomDown.mouseEnterShine("#333333",
-			"111111", "#999999");
-		this.btnZoomOut.mouseEnterShine("#333333", "111111", "#999999");
-		this.btnPre.mouseEnterShine("#333333", "111111", "#999999");
-		this.btnNext.mouseEnterShine("#333333", "111111", "#999999");
-		this.btnMoveMode.mouseEnterShine("#333333", "111111", "#999999")
-	},
-	initColor: function (b) { },
-	setButtonsPos: function () {
-		this.btnZoomUp.css({
-			position: "absolute",
-			"margin-left": "20px",
-			top: "6px"
-		});
-		this.btnZoomDown.css({
-			position: "absolute",
-			"margin-left": "60px",
-			top: "6px"
-		});
-		this.btnZoomOut.css({
-			position: "absolute",
-			"margin-left": "100px",
-			top: "6px"
-		});
-		this.btnPre.css({
-			position: "absolute",
-			"margin-left": "140px",
-			top: "6px"
-		});
-		this.btnNext.css({
-			position: "absolute",
-			"margin-left": "180px",
-			top: "6px"
-		});
-		this.btnMoveMode.css({
-			position: "absolute",
-			"margin-left": "220px",
-			top: "6px"
-		})
-	},
-	changeMoveMode: function () {
-		!0 == this.moveByMousePosition ? (this.moveByMousePosition = !1, this.btnMoveMode.empty().append(getImage(toolBarIconsURL[ICON_MOVE_POSITION])).attr("title", getLanguage("btnPositionToMove", "Move by mouse position"))) : (this.moveByMousePosition = !0, this.btnMoveMode.empty().append(getImage(toolBarIconsURL[ICON_MOVE_DRAG])).attr("title", getLanguage("btnDragToMove", "Move by mouse drag")));
-		this.btnMoveMode.children("img").css({
-			"margin-left": "3px",
-			"margin-top": "3px"
-		})
-	},
-	zoomUp: function () {
-		var b = BookInfo.getBook().bookMap.book.showPage,
-			c = {
-				pointers: [{
-					pageX: windowWidth / 2,
-					pageY: windowHeight / 2
-				}, {
-					pageX: windowWidth / 2,
-					pageY: windowHeight / 2
-				}]
-			};
-		b.scale = b.parameters.toScale;
-		b.parameters.origin = mathOrigin(b, c);
-		originObj(b, b.parameters.origin);
-		animateToScale(b,
-			Math.min(b.parameters.naturalWidth * b.maxScale / b.parameters.width, 1.5 * parseFloat(b.scale)), c)
-	},
-	zoomDown: function () {
-		var b = BookInfo.getBook().bookMap.book.showPage,
-			c = {
-				pointers: [{
-					pageX: windowWidth / 2,
-					pageY: windowHeight / 2
-				}, {
-					pageX: windowWidth / 2,
-					pageY: windowHeight / 2
-				}]
-			};
-		b.scale = b.parameters.toScale;
-		b.parameters.origin = mathOrigin(b, c);
-		originObj(b, b.parameters.origin);
-		var d = b.parameters.naturalWidth / b.parameters.width,
-			f = 0.5 * parseFloat(b.scale);
-		f <= d && (b.parameters.zoomOut = !0);
-		animateToScale(b, Math.max(d, f), c)
 	},
 	zoomOut: function () {
-		onDoubleTap.bind(BookInfo.getBook().bookMap.book.showPage)({
-			pointers: [{
-				pageX: windowWidth / 2,
-				pageY: windowHeight / 2
-			}]
+		this.pages.parameters.zoomFlag = !1;
+		var b = BookInfo.getBook();
+		b.status_zoom = !1;
+		b.adContainer && 1 == b.currentPageIndex && b.adContainer.css({
+			"z-index": 3
 		})
-	}
-}), 
-	SlideBookPage = Class({
-		create: function (b, c, d) {
-			this.pageHeight = this.pageWidth = this.height = this.width = this.zIndex = 0;
-			this.pageIndex = b;
-			this.pageArray = [];
-			this.bookType = d;
-			this.side = $("<div class='slide_side'></div>");
-			this.side.attr("id", c + b);
-			this.init(b)
-		},
-		init: function (b) {
-			isNaN(b) || (this.pages = $("<div class='slide_pages'></div>"), this.initPages(b), this.setPageCss(), this.side.append(this.pages), this.initEvent())
-		},
-		initEvent: function () {
-			this.adContainer && this.adContainer.css({
-				"z-index": 1
-			});
-			this.pages.zoom({
-				zoomIn: this.zoomIn.bind(this),
-				zoomOut: this.zoomOut.bind(this),
-				onZoomed: this.onZoomed.bind(this)
-			})
-		},
-		zoomIn: function () {
-			this.pages.parameters.zoomFlag = !0;
-			var b = BookInfo.getBook();
-			b.status_zoom = !0;
-			b.adContainer && b.adContainer.css({
-				"z-index": 1
-			})
-		},
-		zoomOut: function () {
-			this.pages.parameters.zoomFlag = !1;
-			var b = BookInfo.getBook();
-			b.status_zoom = !1;
-			b.adContainer && 1 == b.currentPageIndex && b.adContainer.css({
-				"z-index": 3
-			})
-		},
-		onZoomed: function (b) {
-			if (!isPhone() && !isPad() && b && !this.pages.parameters.resize) {
-				this.pages.parameters.resize = !0;
-				b = this.pages.offset().left;
-				var c = this.pages.offset().top;
-				b -= this.pages.parameters.left;
-				var c = c - this.pages.parameters.top,
-					d = this.pages.parameters.scale;
-				1 != d && this.resizePages(parseInt(this.pageWidth * d), parseInt(this.pageHeight * d));
-				d = transformCSS({
-					tran: {
-						x: b,
-						y: c
-					},
-					scale: 0,
-					origin: {
-						x: 0,
-						y: 0
-					}
-				});
-				this.pages.css(d);
-				this.pages.parameters && (this.pages.parameters.tran = {
+	},
+	onZoomed: function (b) {
+		if (!isPhone() && !isPad() && b && !this.pages.parameters.resize) {
+			this.pages.parameters.resize = !0;
+			b = this.pages.offset().left;
+			var c = this.pages.offset().top;
+			b -= this.pages.parameters.left;
+			var c = c - this.pages.parameters.top,
+				d = this.pages.parameters.scale;
+			1 != d && this.resizePages(parseInt(this.pageWidth * d), parseInt(this.pageHeight * d));
+			d = transformCSS({
+				tran: {
 					x: b,
 					y: c
-				}, this.pages.parameters.scale = 1, this.pages.parameters.toScale = 1, this.pages.parameters.width = $(this.pages).width(), this.pages.parameters.height = $(this.pages).height(),
-					this.pages.parameters.origin = {
-						x: 0,
-						y: 0
-					}, this.pages.parameters.resize = !1)
+				},
+				scale: 0,
+				origin: {
+					x: 0,
+					y: 0
+				}
+			});
+			this.pages.css(d);
+			this.pages.parameters && (this.pages.parameters.tran = {
+				x: b,
+				y: c
+			}, this.pages.parameters.scale = 1, this.pages.parameters.toScale = 1, this.pages.parameters.width = $(this.pages).width(), this.pages.parameters.height = $(this.pages).height(),
+				this.pages.parameters.origin = {
+					x: 0,
+					y: 0
+				}, this.pages.parameters.resize = !1)
+		}
+	},
+	initPages: function (b) {
+		b = 2 * b - 1;
+		index2 = b - 1;
+		var c = rightToLeft ? b : index2;
+		b = rightToLeft ? index2 : b;
+		this.addPageArray([c, b]);
+		this.leftPage = this.pageArray[c];
+		this.rightPage = this.pageArray[b]
+	},
+	setPageCss: function () {
+		var b = transformCSS({
+			rotate: 0,
+			tran: {
+				x: 0,
+				y: 0
 			}
-		},
-		initPages: function (b) {
-			b = 2 * b - 1;
-			index2 = b - 1;
-			var c = rightToLeft ? b : index2;
-			b = rightToLeft ? index2 : b;
-			this.addPageArray([c, b]);
-			this.leftPage = this.pageArray[c];
-			this.rightPage = this.pageArray[b]
-		},
-		setPageCss: function () {
-			var b = transformCSS({
+		});
+		!this.rightPage && this.leftPage && bookConfig.retainBookCenter && bookConfig.showDoublePage ? (this.leftPage.centerPage(), this.leftPage.setCSSByStyle(b)) : !this.leftPage && this.rightPage &&
+			bookConfig.retainBookCenter ? (this.rightPage.centerPage(), this.rightPage.setCSSByStyle(b)) : (this.leftPage && (this.leftPage.setLeftOrRight(!0), this.leftPage.setCSSByStyle(b)), this.rightPage && (this.rightPage.setLeftOrRight(!1), this.rightPage.setCSSByStyle(b)))
+	},
+	addPageArray: function (b) {
+		if (b && this.pageArray)
+			for (var c = 0; c < b.length; c++) {
+				if (!(0 >= b[c] || b[c] > originTotalPageCount || (this.pageArray[b[c]] && this.fillContent(b[c]), this.pageArray[b[c]]))) {
+					var d = new NormalSide(b[c], "page", this.bookType);
+					d.addAttachment();
+					d.hideMiddleAttachment();
+					d.onResize(this.pageWidth, this.pageHeight);
+					this.pageArray[b[c]] = d;
+					this.fillContent(b[c]);
+					this.pages.append(d.getSide())
+				}
+			}
+
+	},
+	fillContent: function (b) {
+		this.pageArray[b] && this.pageArray[b].fillContent()
+	},
+	remove: function () {
+		this.side.remove();
+		this.side = void 0
+	},
+	setCSSByStyle: function (b) {
+		this.side.css(b)
+	},
+	setCSSByName: function (b) {
+		this.side.addClass(b)
+	},
+	onResize: function (b, c) {
+		this.width = b;
+		this.height = c;
+		this.resetPages()
+	},
+	resetPages: function () {
+		if (this.pages) {
+			var b = getPageWidthHeight(this.width,
+				this.height, 2 * bookConfig.largePageWidth, bookConfig.largePageHeight),
+				c = 2 * parseInt(b.x / 2),
+				b = parseInt(b.y);
+			this.resizePages(c, b);
+			this.pages.css({
+				left: (this.width - c) / 2 + "px",
+				top: (this.height - b) / 2 + "px"
+			});
+			c = transformCSS({
 				rotate: 0,
 				tran: {
 					x: 0,
 					y: 0
 				}
 			});
-			!this.rightPage && this.leftPage && bookConfig.retainBookCenter && bookConfig.showDoublePage ? (this.leftPage.centerPage(), this.leftPage.setCSSByStyle(b)) : !this.leftPage && this.rightPage &&
-				bookConfig.retainBookCenter ? (this.rightPage.centerPage(), this.rightPage.setCSSByStyle(b)) : (this.leftPage && (this.leftPage.setLeftOrRight(!0), this.leftPage.setCSSByStyle(b)), this.rightPage && (this.rightPage.setLeftOrRight(!1), this.rightPage.setCSSByStyle(b)))
-		},
-		addPageArray: function (b) {
-			if (b && this.pageArray)
-				for (var c = 0; c < b.length; c++) {
-					if (!(0 >= b[c] || b[c] > originTotalPageCount || (this.pageArray[b[c]] && this.fillContent(b[c]), this.pageArray[b[c]]))) {
-						var d = new NormalSide(b[c], "page", this.bookType);
-						d.addAttachment();
-						d.hideMiddleAttachment();
-						d.onResize(this.pageWidth, this.pageHeight);
-						this.pageArray[b[c]] = d;
-						this.fillContent(b[c]);
-						this.pages.append(d.getSide())
-					}
-				}
-
-		},
-		fillContent: function (b) {
-			this.pageArray[b] && this.pageArray[b].fillContent()
-		},
-		remove: function () {
-			this.side.remove();
-			this.side = void 0
-		},
-		setCSSByStyle: function (b) {
-			this.side.css(b)
-		},
-		setCSSByName: function (b) {
-			this.side.addClass(b)
-		},
-		onResize: function (b, c) {
-			this.width = b;
-			this.height = c;
-			this.resetPages()
-		},
-		resetPages: function () {
-			if (this.pages) {
-				var b = getPageWidthHeight(this.width,
-					this.height, 2 * bookConfig.largePageWidth, bookConfig.largePageHeight),
-					c = 2 * parseInt(b.x / 2),
-					b = parseInt(b.y);
-				this.resizePages(c, b);
-				this.pages.css({
-					left: (this.width - c) / 2 + "px",
-					top: (this.height - b) / 2 + "px"
-				});
-				c = transformCSS({
-					rotate: 0,
-					tran: {
-						x: 0,
-						y: 0
-					}
-				});
-				this.pages.css(c)
-			}
-		},
-		resizePages: function (b, c) {
-			if (this.pages) {
-				this.pageWidth = b;
-				this.pageHeight = c;
-				this.pages.css({
-					width: this.pageWidth + "px",
-					height: this.pageHeight + "px"
-				});
-				for (var d = this.pageWidth / 2, f = this.pageHeight, g = 0; g < this.pageArray.length; g++)
-					if (this.pageArray[g]) this.pageArray[g].onResize(d,
-						f)
-			}
-		},
-		loading: function () {
-			for (var b = 0; b < this.pageArray.length; b++) this.pageArray[b] && this.pageArray[b].loading()
-		},
-		setLeftOrRight: function (b) {
-			this.isLeft = b
-		},
-		reset: function () { },
-		getSide: function () {
-			return this.side
-		},
-		setZIndex: function (b) {
-			this.zIndex = b;
-			this.side.css({
-				"z-index": b
-			})
-		},
-		getZIndex: function () {
-			return this.zIndex
-		},
-		enterSide: function () {
-			for (var b = 0; b < this.pageArray.length; b++) this.pageArray[b] && this.pageArray[b].enterSide()
-		},
-		leaveSide: function () {
-			for (var b = 0; b < this.pageArray.length; b++) this.pageArray[b] &&
-				this.pageArray[b].leaveSide()
-		},
-		addHistoryTexts: function (b) {
-			for (var c = 0; c < this.pageArray.length; c++) this.pageArray[c] && this.pageArray[c].addHistoryTexts(b)
-		},
-		highlightSearch: function () {
-			for (var b = 0; b < this.pageArray.length; b++) this.pageArray[b] && this.pageArray[b].highlightSearch()
-		},
-		clearHighlight: function () {
-			for (var b = 0; b < this.pageArray.length; b++) this.pageArray[b] && this.pageArray[b].clearHighlight()
-		},
-		resetSlider: function () {
-			for (var b = 0; b < this.pageArray.length; b++) this.pageArray[b] && this.pageArray[b].resetSlider()
-		},
-		playSlider: function () {
-			for (var b = 0; b < this.pageArray.length; b++) this.pageArray[b] && this.pageArray[b].playSlider()
+			this.pages.css(c)
 		}
-	}),
+	},
+	resizePages: function (b, c) {
+		if (this.pages) {
+			this.pageWidth = b;
+			this.pageHeight = c;
+			this.pages.css({
+				width: this.pageWidth + "px",
+				height: this.pageHeight + "px"
+			});
+			for (var d = this.pageWidth / 2, f = this.pageHeight, g = 0; g < this.pageArray.length; g++)
+				if (this.pageArray[g]) this.pageArray[g].onResize(d,
+					f)
+		}
+	},
+	loading: function () {
+		for (var b = 0; b < this.pageArray.length; b++) this.pageArray[b] && this.pageArray[b].loading()
+	},
+	setLeftOrRight: function (b) {
+		this.isLeft = b
+	},
+	reset: function () { },
+	getSide: function () {
+		return this.side
+	},
+	setZIndex: function (b) {
+		this.zIndex = b;
+		this.side.css({
+			"z-index": b
+		})
+	},
+	getZIndex: function () {
+		return this.zIndex
+	},
+	enterSide: function () {
+		for (var b = 0; b < this.pageArray.length; b++) this.pageArray[b] && this.pageArray[b].enterSide()
+	},
+	leaveSide: function () {
+		for (var b = 0; b < this.pageArray.length; b++) this.pageArray[b] &&
+			this.pageArray[b].leaveSide()
+	},
+	addHistoryTexts: function (b) {
+		for (var c = 0; c < this.pageArray.length; c++) this.pageArray[c] && this.pageArray[c].addHistoryTexts(b)
+	},
+	highlightSearch: function () {
+		for (var b = 0; b < this.pageArray.length; b++) this.pageArray[b] && this.pageArray[b].highlightSearch()
+	},
+	clearHighlight: function () {
+		for (var b = 0; b < this.pageArray.length; b++) this.pageArray[b] && this.pageArray[b].clearHighlight()
+	},
+	resetSlider: function () {
+		for (var b = 0; b < this.pageArray.length; b++) this.pageArray[b] && this.pageArray[b].resetSlider()
+	},
+	playSlider: function () {
+		for (var b = 0; b < this.pageArray.length; b++) this.pageArray[b] && this.pageArray[b].playSlider()
+	}
+}),
 	SingleSlideBookPage = Class({
 		initPages: function (b) {
 			this.addPageArray([b]);
@@ -14665,9 +12526,7 @@ var zoomControlBar = Class({
 			return this.bookTop
 		},
 		resizeBook: function () {
-			var b =
-				global.toolBar && global.toolBar.getHeight ? global.toolBar.getHeight() : 0,
-				c = global.toolBar && global.toolBar.getTopHeight ? global.toolBar.getTopHeight() : 0;
+			var b = c = 0;
 			this.width = windowWidth - bookConfig.leftMargin - bookConfig.leftMargin;
 			this.height = windowHeight - bookConfig.topMargin - bookConfig.bottomMargin - b - thumbnailHeight;
 			this.bookTop = bookConfig.topMargin + c;
@@ -14830,118 +12689,6 @@ var zoomControlBar = Class({
 				"slidePage", this.bookType)
 		}
 	}).extend(SlideBook),
-	DockMenu = Class({
-		create: function (b, c, d) {
-			this.menu = $("<div id='dockMenu' class='dockMenu'></div>");
-			this.menuContent = $("<div id='dockMenuContent' class='dockMenuContent'></div>");
-			this.itemArray = [];
-			this.fromIndex = c;
-			this.toIndex = d;
-			this.width = 0;
-			this.height = 130;
-			b.append(this.menu);
-			this.menu.append(this.menuContent);
-			this.initStyle();
-			this.addItem();
-			this.initEvent();
-			this.hide()
-		},
-		initStyle: function () {
-			this.menu.css({
-				width: "100%",
-				height: this.height + "px"
-			});
-			this.menuContent.css({
-				height: "100%",
-				width: "100%",
-				left: 0,
-				bottom: 0
-			})
-		},
-		addItem: function () {
-			for (var b = Math.ceil((this.toIndex - this.fromIndex + 1) / 2), c = 0; c < b; c++) {
-				var d;
-				d = rightToLeft ? this.fromIndex + 2 * (b - 1 - c) + 1 : this.fromIndex + 2 * c;
-				var f = rightToLeft ? this.fromIndex + 2 * (b - 1 - c) : this.fromIndex + 2 * c + 1,
-					g = [{
-						url: getPageDir(d, "thumb", originTotalPageCount),
-						index: d
-					}, {
-						url: getPageDir(f, "thumb", originTotalPageCount),
-						index: f
-					}];
-				if (0 >= d || d > bookConfig.totalPageCount) g = [{
-					url: getPageDir(f, "thumb", originTotalPageCount),
-					index: f
-				}];
-				if (0 >= f || f > bookConfig.totalPageCount) g = [{
-					url: getPageDir(d, "thumb", originTotalPageCount),
-					index: d
-				}];
-				d = new DockMenuItem(this.menuContent, g);
-				f = Math.min(f, bookConfig.totalPageCount);
-				f = Math.max(1, f);
-				d.pageIndex = f;
-				this.itemArray.push(d)
-			}
-			this.resize()
-		},
-		addObj: function (b, c) {
-			"before" == c ? b.prependTo(this.menuContent) : b.appendTo(this.menuContent)
-		},
-		resize: function () {
-			windowWidth < $(this.menuContent).width() ? $(this.menuContent).css({
-				"margin-left": (windowWidth - $(this.menuContent).width()) / 2 - 25 + "px"
-			}) : $(this.menuContent).css({
-				"margin-left": "0px"
-			})
-		},
-		setPosition: function (b,
-			c, d) {
-			if (void 0 == d || null == d) d = ["left", "top"];
-			this.menu.css(d[0], b);
-			this.menu.css(d[1], c)
-		},
-		initEvent: function () {
-			function b() {
-				h || (h = !0, window.setTimeout(c, 15))
-			}
-
-			function c() {
-				for (var c = 0; c < l.itemArray.length; c++) l.itemArray[c] && l.itemArray[c].sizeDockIcons(d, f);
-				h = !1;
-				k && (k = !1, b())
-			}
-			var d, f, g = this.menu,
-				h = !1,
-				k = !1,
-				l = this;
-			$(g).bind(_event._move, function (c) {
-				g.is(":visible") && (d = c.pageX, f = c.pageY, k = !0, b())
-			});
-			$(g).bind(_event._leave, function (c) {
-				g.is(":visible") && (f = d = 1E3, k = !0, b())
-			})
-		},
-		show: function () {
-			this.menu.show();
-			this.resize();
-			for (var b = 0; b < this.itemArray.length; b++) this.itemArray[b].fillContent()
-		},
-		hide: function () {
-			this.menu.hide()
-		},
-		clearHighLight: function () {
-			this.currentItem && this.currentItem.clearHighLight()
-		},
-		setHighLight: function (b) {
-			b = parseInt(b % 20 / 2);
-			rightToLeft && (b = this.itemArray.length - b - 1);
-			this.itemArray[b].setHighLight();
-			for (var c = 0; c < this.itemArray.length; c++) this.itemArray[c].fillContent();
-			this.currentItem = this.itemArray[b]
-		}
-	}),
 
 	PhoneSlideBookPage = Class({}).extend(SlideBookPage),
 	PhoneSingleSlideBookPage = Class({}).extend(SingleSlideBookPage),
@@ -15397,266 +13144,15 @@ Class("TaskList", {
 	}
 });
 
-var getLogoLink = function () {
-	var b = bookConfig.appLogoLinkURL,
-		c = getString("appLogoOpenWindow", "_blank");
-	if ("_Self" == c || "Self" == c || "self" == c) c = "_self";
-	void 0 == b || "" == b ? (b = "javascript:void(0);", c = "_self") : "http" != b.substr(0, 4) && (b = "http://" + b);
-	return [b, c]
+var setPageIndexTextField = function () {
+	setCurrentIndexTextField(BookInfo.getBook().getCurrentPageIndex(), bookType == BookType.normal_book || bookType == BookType.phone_slide_book || bookType == BookType.slide_book || bookType == BookType.catalog_book);
+	void 0 != $("#currentPageIndexTextField") &&
+		null != $("#currentPageIndexTextField") && void 0 != $("#currentPageIndexTextField")[0] && null != $("#currentPageIndexTextField")[0] && ($("#currentPageIndexTextField").bind("keydown", function (b) {
+			13 == b.keyCode && (b = $("#currentPageIndexTextField").val(), b = parseInt(getRealPage(b)), isNaN(b) || (b = Math.min(Math.max(b, 1), totalPageCount), gotoPageFun(b)))
+		}), $("#currentPageIndexTextField").bind("blur", function () { }), $("#currentPageIndexTextField").bind(_event._end, function (b) {
+			$("#currentPageIndexTextField").val("")
+		}))
 },
-	logoBar, initLogoBar = function (b) {
-		logoBar = $("#logoBar");
-		if (void 0 != bookConfig.appLogoIcon || "" != bookConfig.appLogoIcon) {
-			var c = $("<img />"),
-				d = 0,
-				f = 0,
-				g = getLogoLink();
-			c.load(function () {
-				if (isNaN(bookConfig.logoHeight) || "" == bookConfig.logoHeight || null == bookConfig.logoHeight ||
-					void 0 == bookConfig.logoHeight) try {
-						d = b.getLogoHeight()
-					} catch (g) {
-						d = toolBar.getLogoHeight()
-					} else d = bookConfig.logoHeight;
-				var h = c.width() * d / c.height();
-				c.css({
-					width: h + "px",
-					height: d + "px"
-				});
-				try {
-					f = (b.getLogoHeight() - d) / 2
-				} catch (m) {
-					f = 0
-				}
-				logoBar.css({
-					position: "absolute"
-				});
-				logoBar.append(c)
-			});
-			c.attr({
-				src: bookConfig.appLogoIcon
-			});
-			c.css({
-				position: "absolute"
-			})
-		}
-		var h = 0,
-			h = isNaN(bookConfig.logoPadding) || "" == bookConfig.logoPadding || null == bookConfig.logoPadding || void 0 == bookConfig.logoPadding ? 0 : bookConfig.logoPadding,
-			f = (toolBar.getLogoHeight() - bookConfig.logoHeight) / 2;
-		logoBar.css({
-			left: h + "px"
-		});
-		logoBar.css({
-			top: f + "px"
-		});
-		logoBar.bind(_event._down, function () {
-			window.open(g[0], g[1])
-		});
-		logoBar.bind("mouseover", function () {
-			logoBar.css({
-				cursor: "pointer"
-			})
-		})
-	},
-	setPageIndexTextField = function () {
-		setCurrentIndexTextField(BookInfo.getBook().getCurrentPageIndex(), bookType == BookType.normal_book || bookType == BookType.phone_slide_book || bookType == BookType.slide_book || bookType == BookType.catalog_book);
-		void 0 != $("#currentPageIndexTextField") &&
-			null != $("#currentPageIndexTextField") && void 0 != $("#currentPageIndexTextField")[0] && null != $("#currentPageIndexTextField")[0] && ($("#currentPageIndexTextField").bind("keydown", function (b) {
-				13 == b.keyCode && (b = $("#currentPageIndexTextField").val(), b = parseInt(getRealPage(b)), isNaN(b) || (b = Math.min(Math.max(b, 1), totalPageCount), gotoPageFun(b)))
-			}), $("#currentPageIndexTextField").bind("blur", function () { }), $("#currentPageIndexTextField").bind(_event._end, function (b) {
-				$("#currentPageIndexTextField").val("")
-			}))
-	},
-	languageChange = Class({
-		create: function (b) {
-			var c = this;
-			this.background = $("<div class='printBar'></div>");
-			this.contentBox = $("<div class='printBG'></div>");
-			var d = 0;
-			this.showing = !1;
-			$(this.background).css({
-				width: windowWidth + "px",
-				height: windowHeight + "px"
-			});
-			$(this.contentBox).css({
-				width: "200px"
-			});
-			$(this.contentBox).css({
-				background: "transparent"
-			});
-			b.append(this.background);
-			b.append(this.contentBox);
-			d = 45 * language.length + 10;
-			this.contentBox.css({
-				height: d + "px"
-			});
-			$(this.contentBox).css({
-				left: (windowWidth - 200) / 2 +
-					"px",
-				top: (windowHeight - d) / 2 + "px"
-			});
-			b = [];
-			b = [];
-			for (d = 0; d < language.length; d++) {
-				var f = $("<div></div>"),
-					g = language[d].language;
-				$(f).css({
-					width: "80px",
-					height: "35px",
-					position: "absolute"
-				});
-				$(f).css({
-					left: "60px",
-					top: 45 * d + 10 + "px"
-				});
-				$(f).html(g);
-				f.attr("language", g);
-				b.push(f);
-				$(c.contentBox).append($(b[d]));
-				$(b[d]).css({
-					"font-size": "20px",
-					"text-align": "center",
-					"line-height": "35px",
-					"vertical-align": "middle",
-					color: "#ffffff"
-				});
-				$(b[d]).css({
-					"font-family": "Tahoma",
-					"border-radius": "5px",
-					position: "absolute"
-				});
-				$(b[d]).css({
-					cursor: "pointer"
-				});
-				$(b[d]).bind(_event._end, function () {
-					// changeLanguage($(this).attr("language"));
-					c.hideBox()
-				});
-				$(b[d]).bind(_event._enter, function () {
-					$(this).css({
-						background: "#transparent",
-						border: "2px solid #ff8040"
-					})
-				});
-				$(b[d]).bind(_event._end, function () {
-					$(this).css({
-						background: "transparent",
-						border: ""
-					})
-				});
-				$(b[d]).bind(_event._leave, function () {
-					$(this).css({
-						background: "transparent",
-						border: ""
-					})
-				})
-			}
-			this.initEvent();
-			$(this.background).css({
-				display: "none"
-			});
-			$(this.contentBox).css({
-				display: "none"
-			})
-		},
-		onResize: function () {
-			var b =
-				45 * language.length + 10;
-			$(this.background).css({
-				width: windowWidth + "px",
-				height: windowHeight + "px"
-			});
-			$(this.contentBox).css({
-				width: "200px",
-				height: b + "px"
-			});
-			$(this.contentBox).css({
-				left: (windowWidth - 200) / 2 + "px",
-				top: (windowHeight - b) / 2 + "px"
-			})
-		},
-		hideBox: function () {
-			$(this.background).fadeOut(1E3);
-			$(this.contentBox).fadeOut(1E3);
-			this.showing = !1
-		},
-		showshow: function () {
-			$(this.background).css({
-				display: "block"
-			});
-			$(this.contentBox).fadeIn(1E3);
-			this.showing = !0
-		},
-		getShowStatu: function () {
-			return this.showing
-		},
-		initEvent: function () {
-			var b =
-				this;
-			$(this.background).bind(_event._end, function () {
-				b.hideBox();
-				b.showing = !1
-			})
-		}
-	}),
-	phoneLanguageChange = Class({
-		create: function (b) {
-			this.contentBox = b;
-			this.width = this.contentBox.width();
-			// this.height = foldingMenu.height - foldingMenu.getItemById("miLanguage").title.height();
-			this.mainColor = colorDiv(bookConfig.toolbarColor, 30);
-			this.itemArray = [];
-			this.isDrag = !1;
-			this.scrollBox = $("<div></div>");
-			this.contentBox.append(this.scrollBox);
-			$(this.contentBox).css({
-				background: this.mainColor
-			});
-			for (b = 0; b < language.length; b++) language[b].language &&
-				this.addItem(language[b].language);
-			this.initScrollBox();
-			this.scrollBox.css("height", this.height + "px");
-			this.initEvent()
-		},
-		initScrollBox: function () {
-			this.scrollBox.css({
-				"line-height": "50px",
-				"verticale-align": "middle",
-				"font-size": "20px",
-				color: "#ffffff",
-				"font-family": "Arial,Tahoma"
-			})
-		},
-		addItem: function (b) {
-			var c = $("<div style='position:relative;cursor:pointer;width:100%;height:50px;'></div>"),
-				d = $("<img style='position:absolute;display:none;width:25px;height:25px;top:13px;right:15px;'/>");
-			d.attr("src", toolBarIconsURL[38]);
-			var f = $("<div/>");
-			f.css({
-				"line-height": "50px",
-				"font-size": "13px"
-			});
-			c.css("border-top", "1px solid " + colorAdd(this.mainColor, 10));
-			c.css("border-bottom", "1px solid " + colorDiv(this.mainColor, 10));
-			c.append($(f));
-			c.append($(d));
-			$(f).html("&nbsp;&nbsp;&nbsp;" + b);
-			b.toLowerCase() === bookConfig.language.toLowerCase() && (d.show(), this.currentItem = c);
-			this.scrollBox.append(c);
-			c.bind(_event._end, function () {
-				b && "" != b && global.phoneLanguageBody && !global.phoneLanguageBody.isDrag && (bookConfig.language = b, selectLanguage(bookConfig.language),
-					toolBar.changeLanguage && toolBar.changeLanguage(), this.currentItem && this.currentItem.find("img").hide(), this.currentItem = c, d.show())
-			}.bind(this))
-		},
-		initEvent: function () {
-			this.scrollBox.css({
-				"overflow-y": "auto",
-				"overflow-x": "hidden",
-				"-webkit-overflow-scrolling": "touch"
-			})
-		},
-		onResize: function () { }
-	}).extend(languageChange),
 	cursor, AnnotationPannel = Class({
 		create: function (b) {
 			var c = this;
@@ -16040,98 +13536,6 @@ var getLogoLink = function () {
 			$(this.background).dragToMove(this.background)
 		}
 	}),
-	phoneSetting = Class({
-		create: function (b) {
-			this.width = b.width();
-			// this.height = foldingMenu.height - foldingMenu.getItemById("miSetting").title.height();
-			this.mainColor = colorDiv(bookConfig.toolbarColor, 30);
-			this.isDrag = !1;
-			this.itemArray = [];
-			this.contentBox = $("<div></div>");
-			b.append(this.contentBox);
-			this.initContent()
-		},
-		initContent: function () {
-			this.contentBox.css({
-				width: this.width - 40,
-				height: this.height,
-				left: 20,
-				"vertical-align": "middle",
-				color: "#ffffff",
-				"font-family": "Arial,Tahoma",
-				position: "absolute"
-			});
-			this.scrollBox = $("<div style='position:absolute;width:100%;'></div>");
-			this.contentBox.append(this.scrollBox);
-			this.addItem()
-		},
-		addItem: function () {
-			for (var b = 0; 2 > b; b++) {
-				var c = $("<div style='position:relative;width:100%;height:60px;'></div>"),
-					d = $("<div style='position:absolute;width:100%;height:35px;'></div>");
-				d.css({
-					"border-radius": "5px",
-					position: "absolute",
-					bottom: "0px",
-					"line-height": "35px",
-					"font-size": "15px",
-					background: colorDiv(bookConfig.toolbarColor, 20)
-				});
-				c.append(d);
-				this.itemArray.push({
-					element: c,
-					title: d
-				})
-			}
-			this.scrollBox.append(this.itemArray[0].element);
-			for (b = 0; 3 > b; b++)
-				if (2 == b) c = this.itemArray[1].element, c.css("border-top", "1px solid " + colorAdd(this.mainColor, 10));
-				else {
-					var c = $("<div style='position:relative;width:100%;height:50px;'></div>"),
-						f = $("<img style='position:absolute;cursor:pointer;width:25px;height:25px;top:13px;right:15px;'/>");
-					f.attr("src", toolBarIconsURL[38]);
-					d = $("<div/>");
-					d.css({
-						"line-height": "50px",
-						"font-size": "13px"
-					});
-					0 != b && 3 != b && c.css("border-top", "1px solid " + colorAdd(this.mainColor, 10));
-					5 != b && (c.css("border-bottom", "1px solid " + colorDiv(this.mainColor, 10)), c.append($(d)), c.append($(f)), c.css({
-						cursor: "pointer"
-					}));
-					this.scrollBox.append(c);
-					this.itemArray.push({
-						element: c,
-						title: d,
-						icon: f
-					})
-				}
-			this.initDifferItem();
-			this.initItemEvent()
-		},
-		initDifferItem: function () {
-			this.itemArray[0].title.html("&nbsp;&nbsp;&nbsp;" + getLanguage("soundSettingTitle", "Sound Setting"));
-			this.itemArray[1].title.html("&nbsp;&nbsp;&nbsp;" + getLanguage("pageSettingTitle", "Page Setting"));
-			this.itemArray[2].title.html("&nbsp;&nbsp;&nbsp;" + getLanguage("closeFlipSound", "Close Flip Sound"));
-			this.itemArray[3].title.html("&nbsp;&nbsp;&nbsp;" + getLanguage("closeBackgroundSound", "Close Background Sound"));
-			bookConfig.FlipSound || this.itemArray[2].element.hide();
-			bookConfig.BackgroundSoundButtonVisible ||
-				this.itemArray[3].element.hide();
-			bookConfig.FlipSound || bookConfig.BackgroundSoundButtonVisible || this.itemArray[0].element.hide();
-			this.itemArray[3].element.attr("id", "btnSound");
-			isFlipBook()
-		},
-		initItemEvent: function () {
-			this.itemArray[2].element.bind(_event._end, function () {
-				bookConfig.FlipSound = !bookConfig.FlipSound;
-				bookConfig.FlipSound ? this.itemArray[2].icon.attr("src", toolBarIconsURL[38]) : this.itemArray[2].icon.attr("src", toolBarIconsURL[39])
-			}.bind(this));
-			this.itemArray[3].element.bind(_event._end, function () {
-				!0 ===
-					isPlaying ? this.itemArray[3].icon.attr("src", toolBarIconsURL[39]) : this.itemArray[3].icon.attr("src", toolBarIconsURL[38])
-			}.bind(this))
-		}
-	}),
 	phoneGotoPage = Class({
 		create: function (b) {
 			this.mainColor = "#000000";
@@ -16221,562 +13625,7 @@ var getLogoLink = function () {
 				return !1
 			}.bind(this))
 		}
-	}),
-	thumbnailBar = Class({
-		create: function (b) {
-			this.show = !1;
-			this.totalPageCount = bookConfig.totalPageCount;
-			this.itemWidth = 90;
-			this.marginLeft = 20;
-			this.marginTop = 10;
-			this.itemBorderWidth = 3;
-			// this.toolBarHeight = 80;
-			this.itemBorderColor = "#f76c6c";
-			this.itemArray = [];
-			this.taskList = new TaskList;
-			this.itemHeightArray = this.getHeightArray();
-			this.background = $("<div id='phoneThum' style='opacity:0;display:none;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;text-align:center;position:absolute;z-index:98;background:rgba(51,51,51,0.8);width:100%;top:40px;left:0px;'></div>");
-			this.itemBox = $("<div style='text-align:left;display:inline-block;padding:0px 0px " + this.marginLeft + "px 0px;'></div>");
-			b.append(this.background);
-			this.background.append(this.itemBox);
-			this.initEvent();
-			this.addItem();
-			this.setHighLight(1)
-		},
-		onResize: function () {
-			this.countHorizatal = parseInt((windowWidth - this.marginLeft) / (this.itemWidth + this.marginLeft));
-			this.countVertical = parseInt((windowHeight - this.toolBarHeight - this.marginTop) / (this.itemHeightArray.itemHeight + this.marginTop)) + 1;
-			this.itemBox.css({
-				width: this.countHorizatal *
-					(this.itemWidth + this.marginLeft) + this.marginLeft
-			});
-			this.background.css({
-				height: windowHeight - this.toolBarHeight
-			});
-			this.taskList.setLargeLength(this.countHorizatal * this.countVertical)
-		},
-		fillContent: function () {
-			this.interval && !this.interval.isRunning() ? this.interval.start() : this.interval = function () {
-				this.LoadCount = 0;
-				for (var b = -this.itemBox.offset().top + 40, b = parseInt(b / (this.itemHeightArray.itemHeight + this.marginTop)), c = this.countHorizatal * b, b = c + this.countHorizatal * this.countVertical, b = Math.min(b, this.totalPageCount),
-					c = Math.max(0, c); c < b && !(1 <= this.LoadCount); c++) this.taskList.unShiftList({
-						index: c
-					}, function (b) {
-						this.fillImage(b.index)
-					}.bind(this))
-			}.interval(this, 60)
-		},
-		hideBox: function () {
-			this.show && this.background.animate({
-				opacity: "0"
-			}, 300, "linear", function () {
-				this.background.hide();
-				this.show = !1;
-				this.interval && this.interval.stop()
-			}.bind(this))
-		},
-		getShowStatu: function () {
-			return this.show
-		},
-		showshow: function () {
-			this.show || (this.background.show(), this.fillContent(), this.background.animate({
-				opacity: "1"
-			}, 300, "linear", function () {
-				this.show = !0
-			}.bind(this)))
-		},
-		setHighLight: function (b) {
-			this.itemArray && this.itemArray[b - 1] && this.itemArray[b - 1].imgContainer && this.itemArray[b - 1].imgContainer.css({
-				"border-color": this.itemBorderColor
-			})
-		},
-		clearHighLight: function () {
-			if (this.itemArray)
-				for (var b = this.itemArray.length, c = 0; c < b; c++) this.itemArray[c].imgContainer && this.itemArray[c].imgContainer.css({
-					"border-color": "transparent"
-				})
-		},
-		fissionAll: function () { },
-		mergeAll: function () { },
-		showOrHide: function () {
-			this.show ? this.hideBox() : this.showshow()
-		},
-		addItem: function () {
-			for (var b =
-				0; b < this.totalPageCount; b++) {
-				var c = this.initItem(b);
-				this.itemBox.append(c.item);
-				this.itemArray.push(c)
-			}
-		},
-		getHeight: function () {
-			return 0
-		},
-		getHeightArray: function () {
-			var b = (this.itemWidth - 2 * this.itemBorderWidth) * bookConfig.largePageHeight / bookConfig.largePageWidth;
-			return {
-				imageHeight: b,
-				titleHeight: 15,
-				itemHeight: b + 15 + 4 * this.itemBorderWidth
-			}
-		},
-		initItem: function (b) {
-			var c = $("<div style='display:inline-block;'></div>"),
-				d = $("<p><span>" + (b + 1) + "</span></p>"),
-				f = $("<div></div>"),
-				g = $("<img/>");
-			c.css({
-				cursor: "pointer",
-				width: this.itemWidth,
-				height: this.itemHeightArray.itemHeight,
-				padding: this.marginTop + "px 0px 0px " + this.marginLeft + "px",
-				"text-align": "center"
-			});
-			f.css({
-				width: this.itemWidth - 2 * this.itemBorderWidth,
-				height: this.itemHeightArray.imageHeight,
-				"border-style": "solid",
-				"border-width": this.itemBorderWidth + "px",
-				"border-radius": this.itemBorderWidth + "px",
-				"border-color": "transparent"
-			});
-			g.css({
-				width: "100%",
-				height: "100%",
-				"background-color": "#ffffff",
-				"background-image": "url(" + uiBaseURL + "loading.gif)",
-				"background-repeat": "no-repeat",
-				"background-position": "center"
-			});
-			d.css({
-				width: this.itemWidth - 2 * this.itemBorderWidth,
-				height: this.itemHeightArray.titleHeight + "px",
-				"line-height": this.itemHeightArray.titleHeight + "px",
-				"vertical-align": "middle",
-				color: "#eeeeee",
-				"font-family": "Arial",
-				"font-size": this.itemHeightArray.titleHeight + "px",
-				padding: "0px",
-				margin: "0px",
-				"border-style": "solid",
-				"border-width": this.itemBorderWidth + "px",
-				"border-color": "transparent"
-			});
-			c.append(f);
-			c.append(d);
-			f.append(g);
-			c.attr("id", b);
-			c.bind(_event._end, function (b) {
-				b.stopPropagation()
-			}.bind(this));
-			c.bind("click", function (c) {
-				gotoPageFun(b + 1);
-				this.hideBox();
-				c.stopPropagation()
-			}.bind(this));
-			return {
-				item: c,
-				imgContainer: f,
-				img: g,
-				title: d,
-				fill: !1
-			}
-		},
-		fillImageOrNot: function (b, c) {
-			return !b || "string" != typeof b || passwardType() && bookConfig.excludeFrontPages && c > parseInt(bookConfig.excludeFrontPages) && !verifyPassward() ? !1 : !0
-		},
-		fillImage: function (b) {
-			if (this.itemArray && this.itemArray[b] && !this.itemArray[b].fill && this.itemArray[b].img) {
-				var c = getPageDir(b + 1, "thumb", originTotalPageCount);
-				c && "string" == typeof c && this.fillImageOrNot(c,
-					b + 1) && (-1 < c.indexOf(".js") ? (this.LoadCount++ , global[decodeDatabasePrefix("thum") + (b + 1)] && "string" == typeof global[decodeDatabasePrefix("thum") + (b + 1)] ? (this.itemArray[b].img.attr("src", dataBase64Str(b + 1, "thum")), this.itemArray[b].fill = !0) : loadJavascript(c, function (c) {
-						this.itemArray[b].img.attr("src", dataBase64Str(b + 1, "thum", c));
-						this.itemArray[b].fill = !0
-					}.bind(this), function () { })) : (this.LoadCount++ , this.itemArray[b].img.attr("src", c), this.itemArray[b].fill = !0))
-			}
-		},
-		initEvent: function () {
-			this.background.bind(_event._end,
-				function () {
-					this.hideBox()
-				}.bind(this))
-		}
 	});
-loadToolBar = Class({
-	create: function (b, c) {
-		this.visible = !1;
-		this.icons = c;
-		this.topBG = $("<div class='pbTopBar' id='pbTopBar' style='font-family:Arial,sans-serif;'></div>");
-		this.bottomBG = $("<div class='pbToolBar' id='pbToolBar' style='font-family:Arial,sans-serif;'></div>");
-		this.btnThumb = $("<div title='Thumbnails'  id='btnThumb' class='phoneMoreButton'></div>");
-		this.btnMore = $("<div title='More'  id='btnMore' class='phoneMoreButton' ></div>");
-		this.mainColor = bookConfig.toolbarColor;
-
-		bookConfig.appLogoIcon && this.topBG.append(this.logo);
-		this.topBG.append(this.btnThumb);
-		// this.topBG.append(this.btnMore);
-		this.initToolBar();
-		bookConfig.AutoPlayButtonVisible || this.btnAutoPlay.hide();
-		global.phoneGotoPagePanel = new phoneGotoPage(tmpContainer);
-		this.initEvent();
-		this.visible = !1;
-		this.initThumbnail();
-	},
-	initToolBar: function () {
-		this.btnMore.attr("title", getLanguage("btnMoreOptionsLeft", "More"));
-		this.btnThumb.attr("title", getLanguage("btnThumb", "Thumb"));
-		this.btnFirst = $("<div title='First Page' id='btnFirst' class='phonebutton' ></div>");
-		this.btnLast = $("<div title='Last Page' id='btnLast' class='phonebutton' ></div>");
-		this.btnGotoPage = $("<div title='Go To Page' id='btnGotoPage' class='phonebutton' ></div>");
-		this.btnZoom = $("<div title='Zoom'  id='btnZoom'  class='phonebutton'></div>");
-		this.btnAutoPlay = $("<div title='Auto play' id='btnAutoPlay' class='phonebutton'></div>");
-		this.btnSearch = $("<div title='search' id='btnSearch' class='phonebutton'></div>");
-		this.btnTableOfContent = $("<div title='Table Of Content' id='btnTableOfContent' class='phonebutton'></div>");
-		this.btnShoppingCart = $("<div title='shopping cart' id='btnShoppingCart' class='phonebutton'></div>");
-		this.btnBookMark = $("<div title='bookMark' id='btnBookMark' class='phonebutton'></div>");
-		this.btnFirst.attr("title", getLanguage("btnFirst", "first"));
-		this.btnLast.attr("title", getLanguage("btnLast", "last"));
-		this.btnGotoPage.attr("title", getLanguage("btnGotoPage", "Go To Page"));
-		this.btnZoom.attr("title", getLanguage("btnZoomIn", "zoom in"));
-		this.btnSearch.attr("title", getLanguage("btnSearch", "search"));
-		this.btnTableOfContent.attr("title", getLanguage("btnTableOfContent", "Table Of Content"));
-		this.btnBookMark.attr("title", getLanguage("btnBookMark", "bookmark"));
-		this.btnShoppingCart.attr("title", getLanguage("btnShoppingCart", "shopping cart"));
-		this.btnShoppingCart.append(shoppingCountHTML);  
-		var b = colorDiv(this.mainColor, 30),
-			c = colorAdd(this.mainColor, 30); 
-		var d = getLogoLink();
-		$(this.logo).click(function () {
-			$.browser.mozilla ? window.location =
-				d[0] : window.open(d[0], d[1])
-		});
-	},
-	initEvent: function () {
-		var b = this;
-		this.btnShoppingCart.bind(_event._end, function () {
-			this.enterOption && window.clearTimeout(this.enterOption);
-			window.shoppingCart && window.shoppingCart.showCart()
-		}.bind(this));
-		this.btnSearch.bind(_event._end, function () {
-			this.enterOption && window.clearTimeout(this.enterOption);
-			// global.foldingMenu && (foldingMenu.show(foldingMenu.width), foldingMenu.expandId("miSearch"));
-			return !1
-		}.bind(this));
-		this.btnTableOfContent.bind(_event._end, function () {
-			this.enterOption && window.clearTimeout(this.enterOption);
-			global.foldingMenu && (foldingMenu.show(foldingMenu.width), foldingMenu.expandId("miTableOfContent"));
-			return !1
-		}.bind(this));
-		this.btnMore.bind(_event._end, function () {
-			this.enterOption && window.clearTimeout(this.enterOption);
-			global.foldingMenu && foldingMenu.showOrHide(foldingMenu.width);
-			return !1
-		}.bind(this));
-		this.btnThumb.bind(_event._end, function () {
-			this.enterOption && window.clearTimeout(this.enterOption);
-			thumbnail.showOrHide();
-			return !1
-		}.bind(this));
-		this.btnLast.bind(_event._end, function () {
-			this.enterOption && window.clearTimeout(this.enterOption);
-			rightToLeft ? firstPageFun() : lastPageFun();
-			return !1
-		}.bind(this));
-		this.btnFirst.bind(_event._end,
-			function () {
-				this.enterOption && window.clearTimeout(this.enterOption);
-				rightToLeft ? lastPageFun() : firstPageFun();
-				return !1
-			}.bind(this));
-		this.btnZoom.bind(_event._end, function () {
-			isZoomStatus() ? this.changeZoomIcon(!0) : this.changeZoomIcon(!1);
-			onDoubleTap.bind(BookInfo.getBook().bookMap.book.showPage)({
-				pointers: [{
-					pageX: windowWidth / 2,
-					pageY: windowHeight / 2
-				}]
-			});
-			this.enterOption && window.clearTimeout(this.enterOption);
-			auto_player.isPlaying() && (auto_player.stop(), this.changeAutoPlayIcon())
-		}.bind(this));
-		this.btnAutoPlay.bind(_event._end,
-			function () {
-				this.enterOption && window.clearTimeout(this.enterOption);
-				auto_player.isPlaying() ? auto_player.stop() : auto_player.start();
-				b.changeAutoPlayIcon();
-				return !1
-			}.bind(this));
-		this.btnGotoPage.bind(_event._end, function () {
-			this.enterOption && window.clearTimeout(this.enterOption);
-			global.phoneGotoPagePanel.showOrHide()
-		}.bind(this));
-		this.btnBookMark.bind(_event._end, function () {
-			var b = {
-				page: BookInfo.getCurrentPages()[0],
-				color: "#bababa",
-				text: "",
-				isCookie: 1,
-				key: (new Date).getTime()
-			};
-			global.phoneBookmark && global.phoneBookmark.addBookmark(b);
-			this.enterOption && window.clearTimeout(this.enterOption);
-			global.foldingMenu && (foldingMenu.show(foldingMenu.width), foldingMenu.expandId("miBookmark"));
-			return !1
-		}.bind(this))
-	},
-	changeButtonColor: function (b) { },
-	changeZoomIcon: function (b) { },
-	changeFullscreenIcon: function (b) { },
-	changeAutoPlayIcon: function (b) {
-		void 0 != auto_player && null != auto_player && (auto_player.isPlaying() ? (this.btnAutoPlay.children().cssSprite(phoneIconsURL[0], "stopAutoPlay", 25, 25, phoneIconInfo), this.btnAutoPlay.attr("title", getLanguage("btnStopAutoFlip",
-			"Stop auto flip"))) : (this.btnAutoPlay.children().cssSprite(phoneIconsURL[0], "autoPlay", 25, 25, phoneIconInfo), this.btnAutoPlay.attr("title", getLanguage("btnAutoFlip", "Auto flip"))))
-	},
-	changeBookmarkIcon: function (b) {
-		b ? this.btnBookMark.children().cssSprite(phoneIconsURL[0], "addBookmark", 25, 25, phoneIconInfo) : this.btnBookMark.children().cssSprite(phoneIconsURL[0], "bookmark", 25, 25, phoneIconInfo);
-		this.btnBookMark.attr("title", getLanguage("btnBookMark", "Bookmark"))
-	},
-	changeSoundIcon: function (b) { },
-	show: function () {
-		this.visible ||
-			(this.visible = !0, this.bottomBG.animate({
-				bottom: 0
-			}, 300), this.topBG.animate({
-				top: 0
-			}, 300), bookType == BookType.singlePhone_slide_book && singlePhoneSlideBook.setShow(!1), bookType == BookType.phone_slide_book && phoneSlideBook.setShow(!1))
-	},
-	initThumbnail: function () {
-		if (bookConfig.ThumbnailsButtonVisible) {
-			var b = thumbnailBar;
-			isCatalogBook() && "lite" == bookConfig.ToolbarViewMode.toLowerCase() && (b = CatalogThumbnailBar);
-			isSlideBook() && "lite" == bookConfig.ToolbarViewMode.toLowerCase() && (b = SlideThumbnailBar);
-			thumbnail = new b(tmpContainer)
-		} else this.btnThumb.hide();
-		this.timmingArray = [this.topBG, this.bottomBG, global.phoneGotoPagePanel, global.foldingMenu]
-	},
-	getHeight: function () {
-		return this.getTopHeight() + this.getBottomHeight()
-	},
-	getTopHeight: function () {
-		return miniStyle.isMini() ? 0 : !0 == this.visible ? 40 : 0
-	},
-	getBottomHeight: function () {
-		return miniStyle.isMini() ? 0 : !0 == this.visible ? 40 : 0
-	},
-	getLogoHeight: function () {
-		return this.topBG.height()
-	},
-	hide: function () {
-		this.visible && (this.enterOption && window.clearTimeout(this.enterOption), this.visible = !1, this.bottomBG.animate({
-			bottom: -60
-		},
-			300), this.topBG.animate({
-				top: -60
-			}, 300), global.phoneGotoPagePanel.hide(), bookType == BookType.singlePhone_slide_book && singlePhoneSlideBook.setShow(!0), bookType == BookType.phone_slide_book && phoneSlideBook.setShow(!0))
-	},
-	enterToShow: function () { },
-	showOrHide: function () {
-		!0 === this.visible ? this.hide() : this.show()
-	},
-	changeZoomIcon: function (b) {
-		b ? (this.btnZoom.children().cssSprite(phoneIconsURL[0], "zoomIn", 25, 25, phoneIconInfo), this.btnZoom.attr("title", getLanguage("btnZoomIn", "zoom in"))) : (this.btnZoom.children().cssSprite(phoneIconsURL[0],
-			"zoomOut", 25, 25, phoneIconInfo), this.btnZoom.attr("title", getLanguage("btnZoomOut", "zoom out")))
-	},
-	changeSoundIcon: function (b) { },
-	lastPage: function () {
-		rightToLeft ? firstPageFun() : lastPageFun()
-	},
-	nextPage: function () {
-		rightToLeft ? previousPageFun() : nextPageFun()
-	},
-	prePage: function () {
-		rightToLeft ? nextPageFun() : previousPageFun()
-	},
-	firstPage: function () {
-		rightToLeft ? lastPageFun() : firstPageFun()
-	}
-});
-
-
-if (isPhone() || isPad()) thumbnailBar = Class({
-	create: function (b) {
-		this.show = !1;
-		this.totalPageCount = bookConfig.totalPageCount;
-		this.itemWidth = 90;
-		this.marginLeft = 20;
-		this.marginTop = 10;
-		this.itemBorderWidth = 3;
-		this.toolBarHeight = 80;
-		this.itemBorderColor = "#f76c6c";
-		this.itemArray = [];
-		this.taskList = new TaskList;
-		this.itemHeightArray = this.getHeightArray();
-		this.background = $("<div id='phoneThum' style='opacity:0;display:none;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;text-align:center;position:absolute;z-index:98;background:rgba(51,51,51,0.8);width:100%;top:40px;left:0px;'></div>");
-		this.itemBox =
-			$("<div style='text-align:left;display:inline-block;padding:0px 0px " + this.marginLeft + "px 0px;'></div>");
-		b.append(this.background);
-		this.background.append(this.itemBox);
-		this.initEvent();
-		this.addItem();
-		this.setHighLight(1)
-	},
-	onResize: function () {
-		this.countHorizatal = parseInt((windowWidth - this.marginLeft) / (this.itemWidth + this.marginLeft));
-		this.countVertical = parseInt((windowHeight - this.toolBarHeight - this.marginTop) / (this.itemHeightArray.itemHeight + this.marginTop)) + 1;
-		this.itemBox.css({
-			width: this.countHorizatal *
-				(this.itemWidth + this.marginLeft) + this.marginLeft
-		});
-		this.background.css({
-			height: windowHeight - this.toolBarHeight
-		});
-		this.taskList.setLargeLength(this.countHorizatal * this.countVertical)
-	},
-	fillContent: function () {
-		this.interval && !this.interval.isRunning() ? this.interval.start() : this.interval = function () {
-			this.LoadCount = 0;
-			for (var b = -this.itemBox.offset().top + 40, b = parseInt(b / (this.itemHeightArray.itemHeight + this.marginTop)), c = this.countHorizatal * b, b = c + this.countHorizatal * this.countVertical, b = Math.min(b, this.totalPageCount),
-				c = Math.max(0, c); c < b && !(1 <= this.LoadCount); c++) this.taskList.unShiftList({
-					index: c
-				}, function (b) {
-					this.fillImage(b.index)
-				}.bind(this))
-		}.interval(this, 60)
-	},
-	hideBox: function () {
-		this.show && this.background.animate({
-			opacity: "0"
-		}, 300, "linear", function () {
-			this.background.hide();
-			this.show = !1;
-			this.interval && this.interval.stop()
-		}.bind(this))
-	},
-	getShowStatu: function () {
-		return this.show
-	},
-	showshow: function () {
-		this.show || (this.background.show(), this.fillContent(), this.background.animate({
-			opacity: "1"
-		}, 300, "linear", function () {
-			this.show = !0
-		}.bind(this)))
-	},
-	setHighLight: function (b) {
-		this.itemArray && this.itemArray[b - 1] && this.itemArray[b - 1].imgContainer && this.itemArray[b - 1].imgContainer.css({
-			"border-color": this.itemBorderColor
-		})
-	},
-	clearHighLight: function () {
-		if (this.itemArray)
-			for (var b = this.itemArray.length, c = 0; c < b; c++) this.itemArray[c].imgContainer && this.itemArray[c].imgContainer.css({
-				"border-color": "transparent"
-			})
-	},
-	fissionAll: function () { },
-	mergeAll: function () { },
-	showOrHide: function () {
-		this.show ? this.hideBox() : this.showshow()
-	},
-	addItem: function () {
-		for (var b =
-			0; b < this.totalPageCount; b++) {
-			var c = this.initItem(b);
-			this.itemBox.append(c.item);
-			this.itemArray.push(c)
-		}
-	},
-	getHeightArray: function () {
-		var b = (this.itemWidth - 2 * this.itemBorderWidth) * bookConfig.largePageHeight / bookConfig.largePageWidth;
-		return {
-			imageHeight: b,
-			titleHeight: 15,
-			itemHeight: b + 15 + 4 * this.itemBorderWidth
-		}
-	},
-	initItem: function (b) {
-		var c = $("<div style='display:inline-block;'></div>"),
-			d = $("<p><span>" + (b + 1) + "</span></p>"),
-			f = $("<div></div>"),
-			g = $("<img/>");
-		c.css({
-			cursor: "pointer",
-			width: this.itemWidth,
-			height: this.itemHeightArray.itemHeight,
-			padding: this.marginTop + "px 0px 0px " + this.marginLeft + "px",
-			"text-align": "center"
-		});
-		f.css({
-			width: this.itemWidth - 2 * this.itemBorderWidth,
-			height: this.itemHeightArray.imageHeight,
-			"border-style": "solid",
-			"border-width": this.itemBorderWidth + "px",
-			"border-radius": this.itemBorderWidth + "px",
-			"border-color": "transparent"
-		});
-		g.css({
-			width: "100%",
-			height: "100%",
-			"background-color": "#ffffff",
-			"background-image": "url(" + uiBaseURL + "loading.gif)",
-			"background-repeat": "no-repeat",
-			"background-position": "center"
-		});
-		d.css({
-			width: this.itemWidth -
-				2 * this.itemBorderWidth,
-			height: this.itemHeightArray.titleHeight + "px",
-			"line-height": this.itemHeightArray.titleHeight + "px",
-			"vertical-align": "middle",
-			color: "#eeeeee",
-			"font-family": "Arial",
-			"font-size": this.itemHeightArray.titleHeight + "px",
-			padding: "0px",
-			margin: "0px",
-			"border-style": "solid",
-			"border-width": this.itemBorderWidth + "px",
-			"border-color": "transparent"
-		});
-		c.append(f);
-		c.append(d);
-		f.append(g);
-		c.attr("id", b);
-		c.bind(_event._end, function (b) {
-			b.stopPropagation()
-		}.bind(this));
-		c.bind("click", function (c) {
-			gotoPageFun(b +
-				1);
-			this.hideBox();
-			c.stopPropagation()
-		}.bind(this));
-		return {
-			item: c,
-			imgContainer: f,
-			img: g,
-			title: d,
-			fill: !1
-		}
-	},
-	fillImageOrNot: function (b, c) {
-		return !b || "string" != typeof b || passwardType() && bookConfig.excludeFrontPages && c > parseInt(bookConfig.excludeFrontPages) && !verifyPassward() ? !1 : !0
-	},
-	fillImage: function (b) {
-		if (this.itemArray && this.itemArray[b] && !this.itemArray[b].fill && this.itemArray[b].img) {
-			var c = getPageDir(b + 1, "thumb", originTotalPageCount);
-			c && "string" == typeof c && this.fillImageOrNot(c, b + 1) && (-1 < c.indexOf(".js") ?
-				(this.LoadCount++ , global[decodeDatabasePrefix("thum") + (b + 1)] && "string" == typeof global[decodeDatabasePrefix("thum") + (b + 1)] ? (this.itemArray[b].img.attr("src", dataBase64Str(b + 1, "thum")), this.itemArray[b].fill = !0) : loadJavascript(c, function (c) {
-					this.itemArray[b].img.attr("src", dataBase64Str(b + 1, "thum", c));
-					this.itemArray[b].fill = !0
-				}.bind(this), function () { })) : (this.LoadCount++ , this.itemArray[b].img.attr("src", c), this.itemArray[b].fill = !0))
-		}
-	},
-	initEvent: function () {
-		this.background.bind(_event._end, function () {
-			this.hideBox()
-		}.bind(this))
-	}
-}); 
- 
 var gradientColorA, gradientColorB, gradientColorAngle, backGroundImgURL, zoomButtonEnable, thumbButtonEnable, shareButtonEnable, searchButtonEnable, bookmarkButtonEnable, tableofcontentButtonEnable, windowWidth = 0,
 	windowHeight = 0,
 	toolBarColor, buttonColor, originTotalPageCount, totalPageCount, leftShadowWidth = 50,
@@ -16788,11 +13637,11 @@ var gradientColorA, gradientColorB, gradientColorAngle, backGroundImgURL, zoomBu
 	stopFlip = !1,
 	flipping = !1,
 	isTouch = isTouchDevice(),
-	bookContainer, tmpContainer, onBookLoad, slideBook, singleSlideBook, catalogBook, singleCatalogBook, phoneSlideBook, singlePhoneSlideBook, flipBook, singlePageBook, toolBar, printBody, helpBody, aboutBody, noteCookie, textRemark, signature, annotationShapes;
+	bookContainer, tmpContainer, onBookLoad, slideBook, singleSlideBook, catalogBook, singleCatalogBook, phoneSlideBook, singlePhoneSlideBook, flipBook, singlePageBook, printBody, helpBody, aboutBody, noteCookie, textRemark, signature, annotationShapes;
 cursor = !0;
 var highLight, annotationPannel, videoGallery, photoGallery, languagePanel, QRcode, QRbutton, moreBar, pageIndexTextField, _singleBook, resizeBookAfterFlip = !1,
 	frmSearch, frmShare, backgroundAudio, auto_player, productName, homePage, _tipsBox, frmBookmark, bookmark, thumbnail, oriPageIndex = 1,
-	googleID, hardPageEnable, uiBaseURL, phoneBaseURL, soundBaseURL, browserType, rightToLeft = !1,
+	googleID, hardPageEnable, uiBaseURL, soundBaseURL, browserType, rightToLeft = !1,
 	isFlipPdf = !1,
 	flaudio = 0,
 	flagspeak = 0,
@@ -16800,7 +13649,7 @@ var highLight, annotationPannel, videoGallery, photoGallery, languagePanel, QRco
 	hadBMT, bgSound, backgroundObj, bmtBox, textForPages = [],
 	positionForPages = [],
 	loadSearchFlag = !1,
-	iconArray, toolBarIconsURL, bookType = 0,
+	iconArray, bookType = 0,
 	thumbnailHeight = 0;
 function scrapOriginPageIndex() {
 	var b = bookConfig.OriginPageIndex,
@@ -16818,19 +13667,14 @@ function initFlipBook(b) {
 }
 
 function initCatalogBook(b) {
-	bookType == BookType.catalog_book && (global.catalogBook = new CatalogBook(bookContainer, b), "lite" == bookConfig.ToolbarViewMode.toLowerCase() ? toolBar.hide() : (toolBar.show(), catalogBook.guidBar.hide()));
+	bookType == BookType.catalog_book && (global.catalogBook = new CatalogBook(bookContainer, b), "lite" == bookConfig.ToolbarViewMode.toLowerCase() ? '' : (catalogBook.guidBar.hide()));
 	bookType == BookType.singleCatalog_book && (global.singleCatalogBook = new SingleCatalogBook(bookContainer, b))
 }
 
 function initSlideBook(b) {
 	bookType == BookType.slide_book && (global.slideBook = new PcSlideBook(bookContainer, b));
 	bookType == BookType.singleSlide_book && (global.singleSlideBook = new PcSingleSlideBook(bookContainer, b));
-	if (bookType == BookType.phone_slide_book || bookType == BookType.singlePhone_slide_book) global.phoneSlideBook = new PhoneSlideBook(bookContainer, b), global.singlePhoneSlideBook = new PhoneSingleSlideBook(bookContainer, b), toolBar.hide()
-}
-
-function initToolbar() {
-	global.shoppingCountHTML = $("<span class='shoppingCount'>0</span>");
-	global.toolBar || (global.toolBar = new loadToolBar(tmpContainer, iconArray));
+	if (bookType == BookType.phone_slide_book || bookType == BookType.singlePhone_slide_book) global.phoneSlideBook = new PhoneSlideBook(bookContainer, b), global.singlePhoneSlideBook = new PhoneSingleSlideBook(bookContainer, b)
 }
 
 function winodwDynamicResize() {
@@ -16851,7 +13695,6 @@ function scrapURL() {
 		TurnonAutoFlip()
 	}, 1E3) : TurnonAutoFlip();
 	0 <= window.location.search.indexOf("fullscreen=true") && function () {
-		toolBar && toolBar.btnFullscreen && toolBar.btnFullscreen.trigger(_event._end);
 		$(document).trigger(fullScreenApi.fullScreenEventName)
 	}.delay(this, 50)
 }
@@ -16864,7 +13707,7 @@ var resizeBySearchInput = function () {
 		var b = Math.min(bookConfig.totalPageCount, 100),
 			b = $.easing.easeOutQuad(null, b, 0, 30, 100),
 			b = Math.floor(b),
-			c = Math.max(windowHeight - bookConfig.topMargin - bookConfig.bottomMargin - toolBar.getHeight() - thumbnailHeight, 1),
+			c = Math.max(windowHeight - bookConfig.topMargin - bookConfig.bottomMargin - 0 - thumbnailHeight, 1),
 			c = Math.min(1, c / 800),
 			c = $.easing.swing(null, Math.max(b - 8, 0), 1, c - 1, 22);
 		return b * c
@@ -16876,11 +13719,11 @@ function resizeAttachments() {
 	if (global.aboutBody) aboutBody.onResize();
 	if (global.languagePanel) languagePanel.onResize();
 	if (global.annotationPannel) annotationPannel.onResize();
-	var b = Math.max(windowHeight - bookConfig.topMargin - bookConfig.bottomMargin - toolBar.getHeight() - thumbnailHeight, 1),
+	var b = Math.max(windowHeight - bookConfig.topMargin - bookConfig.bottomMargin - 0 - thumbnailHeight, 1),
 		c = Math.max(windowWidth - bookConfig.leftMargin - bookConfig.rightMargin, 1);
-	global.frmSearch && (frmSearch.resize(240, b), frmSearch.setTop(toolBar.getTopHeight() + 10));
+	global.frmSearch && (frmSearch.resize(240, b), frmSearch.setTop(10));
 	global.frmBookmark &&
-		(c = Math.max(300, c / 4), frmBookmark.resize(c, b), frmBookmark.setTop(toolBar.getTopHeight() + 10));
+		(c = Math.max(300, c / 4), frmBookmark.resize(c, b), frmBookmark.setTop(10));
 }
 function resizeCatalogBook() {
 	if (global.catalogBook) {
@@ -16891,7 +13734,7 @@ function resizeCatalogBook() {
 		"lite" != bookConfig.ToolbarViewMode.toLowerCase() || miniStyle.isMini() && !fullScreenApi.isFullScreen() || (b = bookConfig.topMargin + 50);
 		var g = 0;
 		global.thumbnail && !0 == thumbnail.showing && (g = thumbnail.getHeight());
-		var g = Math.max(windowHeight - b - f - toolBar.getHeight() - g, 1),
+		var g = Math.max(windowHeight - b - f - g, 1),
 			h = Math.max(windowWidth - c - d, 1),
 			k = bookConfig.largePageWidth * (-parseFloat(bookConfig.visibleAreaLeft) +
 				parseFloat(bookConfig.visibleAreaRight)) / 100,
@@ -16909,7 +13752,7 @@ function resizeCatalogBook() {
 		f = -k.x / 4;
 		d = k.x / 4;
 		rightToLeft && (f = k.x / 4, d = -k.x / 4);
-		var l = "lite" == bookConfig.ToolbarViewMode.toLowerCase() ? 0 : toolBar.getTopHeight(),
+		var l = "lite" == bookConfig.ToolbarViewMode.toLowerCase() ? 0 : 0,
 			b = (g - k.y) / 2 + b + l,
 			m = {},
 			l = 0;
@@ -16935,14 +13778,14 @@ function resizeFlipBook() {
 		d = bookConfig.rightMargin,
 		f = bookConfig.bottomMargin,
 		g = Math.max(windowWidth - c - d, 1),
-		h = Math.max(windowHeight - b - f - toolBar.getHeight() - thumbnailHeight, 1),
+		h = Math.max(windowHeight - b - f - thumbnailHeight, 1),
 		k = bookConfig.largePageWidth * (-parseFloat(bookConfig.visibleAreaLeft) + parseFloat(bookConfig.visibleAreaRight)) / 100,
 		l = bookConfig.largePageHeight * (parseFloat(bookConfig.visibleAreaBottom) - parseFloat(bookConfig.visibleAreaTop)) / 100,
 		m = getPageWidthHeight(g - 2 * bookConfig.hardCoverBorderWidth -
 			2 * totalThicknessWidth(), h - 2 * bookConfig.hardCoverBorderWidth, 2 * k, l);
 	if (global.flipBook) {
 		var n = (g - m.x) / 2 + c,
-			p = (h - m.y) / 2 + b + toolBar.getTopHeight(),
+			p = (h - m.y) / 2 + b,
 			q = -m.x / 4,
 			t = m.x / 4;
 		rightToLeft && (q = m.x / 4, t = -m.x / 4);
@@ -16972,7 +13815,7 @@ function resizeFlipBook() {
 		});
 		flipBook.zoomOut()
 	}
-	global.singlePageBook && (m = getPageWidthHeight(windowWidth - bookConfig.hardCoverBorderWidth - totalThicknessWidth() - c - d, windowHeight - toolBar.getHeight() - bookConfig.hardCoverBorderWidth - b - f, k, l), singlePageBook.onResize(m.x, m.y), b = (h - m.y) / 2 + b + toolBar.getTopHeight(), singlePageBook.setCSS({
+	global.singlePageBook && (m = getPageWidthHeight(windowWidth - bookConfig.hardCoverBorderWidth - totalThicknessWidth() - c - d, windowHeight - bookConfig.hardCoverBorderWidth - b - f, k, l), singlePageBook.onResize(m.x, m.y), b = (h - m.y) / 2 + b, singlePageBook.setCSS({
 		top: b + "px",
 		left: c + (g - m.x - bookConfig.hardCoverBorderWidth - totalThicknessWidth()) / 2 + (rightToLeft ? bookConfig.hardCoverBorderWidth : 0) + (rightToLeft ? totalThicknessWidth() : 0) + "px"
 	}),
@@ -17038,11 +13881,10 @@ function onWindowKeyDown(b) {
 	}
 };
 var init = function () {
-	initToolbar();
 	var b = scrapOriginPageIndex();
 	initFlipBook(b);
 	initCatalogBook(b);
-	initSlideBook(b); 
+	initSlideBook(b);
 	changeShowBook(bookType);
 	onStageResize();
 	scrapURL();
@@ -17050,8 +13892,8 @@ var init = function () {
 	setPageIndexTextField();
 	initFlipSound();
 	controlAudioVolume();
-	googleAnalytics();
-	winodwDynamicResize()
+	winodwDynamicResize();
+	setWxxApi();//暴露api 
 };
 
 function createAll() {
@@ -17067,20 +13909,6 @@ function createAll() {
 	global.windowWidth = $("body").width();
 	global.windowHeight = $("body").height();
 	global.onBookLoad = new loadingBook(tmpContainer, bookConfig.loadingBackground);
-	toolBarIconsURL = [
-		uiBaseURL + "Last.png", 
-	uiBaseURL + "Last.png", 
-	uiBaseURL + "next.png", 
-	uiBaseURL + "prev.png", 
-	uiBaseURL + "First.png", 
-	uiBaseURL + "ZoomIn.png", 
-	uiBaseURL + "ZoomOut.png", 
-	uiBaseURL + "autoPlay.png", 
-	uiBaseURL + "stopAutoPlay.png", uiBaseURL + "thumbnails.png", uiBaseURL + "sharethis.png", uiBaseURL + "search.png", uiBaseURL + "download.png", uiBaseURL + "home.png", uiBaseURL + "bookmark.png", uiBaseURL + "soundOn.png", uiBaseURL + "soundOff.png", uiBaseURL +
-		"previous_normal.png", uiBaseURL + "previous_normal_down.png", uiBaseURL + "next_normal.png", uiBaseURL + "next_normal_down.png", uiBaseURL + "print.png", uiBaseURL + "Help.png", uiBaseURL + "about.png", uiBaseURL + "moreBar.png", uiBaseURL + "languageChange.png", uiBaseURL + "languageChange.png", uiBaseURL + "fullscreen.png", uiBaseURL + "exitFullscreen.png", uiBaseURL + "moveByPos.png", uiBaseURL + "moveByDrag.png", uiBaseURL + "annotation.png", uiBaseURL + "tableOfContent.png", uiBaseURL + "videoGallery.png", uiBaseURL + "photoGallery.png", uiBaseURL +
-	"collapsed.png", uiBaseURL + "expanded.png", uiBaseURL + "setting.png", uiBaseURL + "choosed.png", uiBaseURL + "unchoosed.png", uiBaseURL + "gotoPage.png", phoneBaseURL + "phone_icon.png", uiBaseURL + "catalog_icon.png"
-	]; 
-	phoneIconsURL = [phoneBaseURL + "phone_icon.png"];
 	var b = function (b) {
 		jsLoadingBar.destroy();
 		iconArray = b;
@@ -17094,7 +13922,7 @@ function createAll() {
 				window.scrollTo(0, 1)
 			}, 0)
 		};
-	isPhone() || isPad() ? $(window).loader(phoneIconsURL, c) : ( $(window).loader(toolBarIconsURL, b))
+	isPhone() || isPad() ? $(window).loader('0', c) : ($(window).loader('0', b))
 }
 var onStageResize = function (b) {
 	resizeBySearchInput() || (global.resizeBookAfterFlip = !1, bookType == BookType.normal_book && flipBook && flipBook.flipping || bookType == BookType.single_book && singlePageBook.flipping || bookType == BookType.catalog_book && nBookStatu == normalBookStatu.book_statu_auto_flip ? resizeBookAfterFlip = !0 : ($("html").css({
@@ -17114,14 +13942,15 @@ function initEvent() {
 		onWindowKeyDown(b)
 	})
 }
+
+
 jQuery(document).ready(function () {
 	"use strict";
 	if (window.bookConfig) {
 		checkBookConfig();
 		global.uiBaseURL = bookConfig.UIBaseURL;
 		uiBaseURL && "string" == typeof uiBaseURL && "/" != uiBaseURL.substr(uiBaseURL.length - 1, 1) && (uiBaseURL += "/");
-		global.phoneBaseURL = uiBaseURL;
-		global.uiBaseURL = uiBaseURL + "style/icon/";
+		global.uiBaseURL = "style/icon/";
 		global.originTotalPageCount = parseInt(bookConfig.totalPageCount);
 		global.totalPageCount =
 			originTotalPageCount + (1 == originTotalPageCount % 2 ? 1 : 0);
@@ -17149,5 +13978,40 @@ jQuery(document).ready(function () {
 	} else '',
 		function () {
 			window.location = window.location.href
-		}.delay(400)
+		}.delay(400);
 });
+
+
+function setWxxApi() {
+	let wxx = window.Wxx;
+	wxx.gotoPage = function (pageNum, cb) {
+		gotoPageFun(pageNum);
+		if (cb) {
+			cb();
+		}
+	}
+	wxx.nextPage = function (cb) {
+		nextPageFun()
+		if (cb) {
+			cb();
+		}
+	}
+	wxx.prevPage = function (cb) {
+		previousPageFun();
+		if (cb) {
+			cb();
+		}
+	}
+	wxx.lastPage = function (cb) {
+		lastPageFun();
+		if (cb) {
+			cb();
+		}
+	}
+	wxx.firstPage = function (cb) {
+		firstPageFun();
+		if (cb) {
+			cb();
+		}
+	}
+}
