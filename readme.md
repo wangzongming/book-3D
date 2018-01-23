@@ -16,7 +16,7 @@
 ###    方法：
 
 	callback（回调）全部为可选参数
-	
+
 	.nextPage(callback);//下一页
 	.prevPage(callback);//上一页
 	.lastPage(callback);//去尾页
@@ -61,16 +61,23 @@
 
 ## ---------目录结构
 *	file
-	> -----javascript
-		> ----config.js(用于修改配置的文件)
-		> ----jquery-1.9.1.min
-		> ----main.js(核心文件)
-		> ----loadindeJs.js(加载文件)
-	> -----style
-		> ----style.css(样式文件)
-	 	> ...
-	> index.html
-	
+	<ul>
+		<li>
+			-----javascript
+				> ----config.js(用于修改配置的文件)
+				> ----jquery-1.9.1.min
+				> ----main.js(核心文件)
+				> ----loadindeJs.js(加载文件)
+		</li>
+		<li>
+			-----style
+				> ----style.css(样式文件)
+				> ...
+		</li>
+		<li>
+			index.html
+		</li>
+	</ul> 
 
 
 ## --------------------------log:
