@@ -29,10 +29,10 @@
 	.pageIndex;  //当前页索引
 
 ## ---------eg: 
+
 *	用户自定义的配置
 
-	<code>
-	window.Wxx = window.wxx = w = {
+	window.Wxx = window.wxx = w = { 
 		images:[{//图片配置 每个图片就是一页
 			src:'http://books.mingbianji.com/showbox/iPhone6&AppleWatch/files/mobile/1.jpg'
 		},{
@@ -55,8 +55,7 @@
 		window.Wxx.gotoPage(1, function(){
 			console.log('跳转完成'); 
 		})
-	}, 2000)
-	</code>
+	}, 2000) 
  
 ## ---------截图
     ![pc](./v0.1-1.jpg)
